@@ -1,0 +1,233 @@
+.App {
+  text-align: center; /* Or remove if you don't want center alignment */
+  padding: 20px;
+  display: flex; /* Use Flexbox for side-by-side layout */
+  gap: 20px; /* Space between form and preview */
+  max-width: 1600px; /* Max width for larger screens */
+  margin: 0 auto; /* Center the layout */
+}
+
+.form-section {
+    flex: 1; /* Takes up available space */
+    min-width: 400px; /* Minimum width */
+    max-width: 600px; /* Maximum width */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    height: calc(100vh - 60px); /* Example height, adjust as needed */
+    overflow-y: auto; /* Make form scrollable if content exceeds height */
+    border: 1px solid var(--border-color); /* Use variable */
+    background-color: var(--secondary-bg-color); /* Use variable */
+}
+
+.preview-section {
+    flex: 1; /* Takes up available space */
+    min-width: 500px; /* Minimum width */
+    max-width: 800px; /* Maximum width for resume preview */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #e9ecef; /* Slightly different background for preview area */
+    padding: 20px;
+    height: calc(100vh - 60px); /* Match form height */
+    overflow-y: auto; /* Allow preview to scroll if content is long */
+    position: sticky; /* Make preview sticky on scroll (optional) */
+    top: 20px; /* Adjust sticky position */
+    border: 1px solid var(--border-color); /* Use variable */
+    background-color: var(--preview-bg-color); /* Use variable */
+}
+
+.resume-preview-container {
+    background-color: #fff; /* White background for the actual resume paper */
+    padding: 30px; /* Simulate paper margins */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin: 0 auto; /* Center the 'paper' */
+    /* Dimensions will be controlled by template CSS, e.g., A4 size */
+    background-color: var(--resume-paper-bg); /* Use variable */
+}
+
+
+/* Basic Form Styling */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    color: var(--text-color); /* Use variable (maybe a dimmer one?) */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    border: 1px solid var(--input-border-color); /* Use variable */
+    background-color: var(--input-bg-color); /* Use variable */
+    color: var(--input-text-color); /* Use variable */
+}
+
+.form-group textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+ /* Styling for list items (experience, education etc) */
+.list-item {
+    border: 1px dashed #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    position: relative; /* For positioning the remove button */
+}
+
+.remove-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 18px; /* Center the 'X' */
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+.remove-button:hover {
+    background-color: #cc0000;
+}
+
+.add-button {
+    background-color: var(--primary-color); /* Example */
+    color: var(--button-text-color);
+    background-color: #28a745;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    display: inline-block; /* Allow margin-top */
+}
+ .add-button:hover {
+    background-color: #218838;
+ }
+
+
+.ai-button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+  background-color: #6c5ce7; /* Purple */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-left: 10px;
+  vertical-align: middle; /* Align with textarea/input */
+}
+
+.ai-button:hover {
+    background-color: #5847d1;
+}
+
+.ai-button:disabled {
+    background-color: #b2aae3;
+    cursor: not-allowed;
+}
+
+.loading-spinner {
+  /* Basic spinner styles - replace with a better one if needed */
+  border: 3px solid #f3f3f3; /* Light grey */
+  border-top: 3px solid #6c5ce7; /* Purple */
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+  display: inline-block; /* Or 'block' depending on layout */
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Template Selector Styles */
+.template-selector {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.template-selector h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.template-options button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+
+.template-options button:hover {
+    background-color: #0056b3;
+}
+
+ .template-options button.active {
+     background-color: #004085;
+     font-weight: bold;
+ }
+
+/* PDF Download Button */
+.download-button {
+    background-color: #17a2b8; /* Or make theme variables for this */
+    color: white;
+  display: block;
+  margin: 20px auto; /* Center the button */
+  padding: 12px 25px;
+  background-color: #17a2b8; /* Teal color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.download-button:hover {
+    background-color: #117a8b;
+}
+
+
+/* --- Add Specific Template Styles in separate files later --- */
+/* Example for Template1.css */
+/* .template1 .resume-header { ... } */
+/* .template1 .section-title { ... } */

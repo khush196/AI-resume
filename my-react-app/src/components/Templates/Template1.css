@@ -1,0 +1,87 @@
+/* --- Template 1: Classic --- */
+/* Styles specific to template1, applied when .resume-preview has the .template1 class */
+
+.template1 .resume-header {
+    text-align: center;
+    border-bottom: 2px solid #333; /* Thicker, darker line */
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+}
+
+.template1 .resume-header .name {
+    font-size: 2.2em;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.template1 .resume-header .title {
+    font-size: 1.3em;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+.template1 .resume-header .contact-info {
+    font-size: 0.95em;
+    color: #555;
+}
+ .template1 .resume-header .contact-info span::before {
+    content: '•'; /* Use bullets as separators */
+    margin: 0 8px;
+    color: #888;
+ }
+ .template1 .resume-header .contact-info span:first-child::before {
+    content: ''; /* No bullet before the first item */
+    margin: 0;
+ }
+
+
+.template1 .section-title {
+    font-size: 1.4em;
+    color: #222;
+    border-bottom: 1px solid #555;
+    padding-bottom: 4px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.template1 .entry .entry-header {
+    font-size: 1.1em;
+    margin-bottom: 6px;
+}
+
+.template1 .entry .entry-header .job-title,
+.template1 .entry .entry-header .degree,
+.template1 .entry .entry-header .project-name {
+    font-weight: bold;
+    color: #000;
+}
+
+.template1 .entry .entry-header .company,
+.template1 .entry .entry-header .school {
+    font-style: italic;
+    color: #444;
+}
+
+.template1 .entry .entry-header .years {
+    font-style: normal; /* Override base style if needed */
+    font-weight: bold;
+    color: #333;
+}
+
+
+.template1 .description-list {
+    padding-left: 25px; /* Slightly more indent */
+    list-style-type: square; /* Different bullet */
+}
+
+.template1 .skills-list {
+    gap: 10px; /* More space between skills */
+}
+
+.template1 .skills-list li {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 4px 10px;
+    border-radius: 0; /* Square corners */
+}

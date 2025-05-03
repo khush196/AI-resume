@@ -1,0 +1,168 @@
+/* Base styling for the resume preview elements */
+/* These styles will be common across templates unless overridden */
+
+.resume-preview {
+    font-family: 'Arial', sans-serif; /* Basic font stack */
+    color: #333;
+    line-height: 1.5;
+    font-size: 11pt; /* Common resume font size */
+    /* Dimensions can be set by template CSS, e.g., width: 8.5in; height: 11in; */
+    /* Or use max-width for responsiveness within the container */
+    max-width: 100%;
+    margin: 0 auto; /* Center within its container if width is fixed */
+color: var(--text-color); /* Use variable */
+}
+
+/* --- Header --- */
+.resume-header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ccc; /* Simple separator */
+    border-bottom: 2px solid var(--border-color); /* Use variable */
+}
+
+.resume-header .name {
+    font-size: 2em; /* Larger font for name */
+    margin: 0 0 5px 0;
+    font-weight: bold;
+    color: #000;
+    color: var(--text-color); /* Or a specific header color variable */
+}
+
+.resume-header .title {
+    font-size: 1.2em;
+    margin: 0 0 10px 0;
+    font-weight: normal;
+    color: #555;
+    color: var(--text-color); /* Or a secondary text variable */
+}
+
+.resume-header .contact-info {
+    font-size: 0.9em;
+    color: #444;
+    color: var(--link-color); /* Use variable */
+}
+.resume-header .contact-info span {
+    margin: 0 5px; /* Spacing between contact items */
+    white-space: nowrap; /* Prevent wrapping mid-item */
+}
+.resume-header .contact-info a {
+    color: #0056b3; /* Link color */
+    text-decoration: none;
+}
+.resume-header .contact-info a:hover {
+    text-decoration: underline;
+}
+
+
+/* --- Sections --- */
+.resume-section {
+    margin-bottom: 15px;
+}
+
+.resume-section .section-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+    text-transform: uppercase; /* Common resume style */
+    letter-spacing: 1px;
+}
+
+/* --- Entries (Experience, Education, Projects) --- */
+.entry {
+    margin-bottom: 10px;
+}
+
+.entry .entry-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: flex; /* Use flexbox for better alignment */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 5px; /* Spacing between elements in the header */
+    font-size: 1.05em;
+}
+
+.entry .entry-header .job-title,
+.entry .entry-header .degree,
+.entry .entry-header .project-name {
+    color: #000; /* Make primary titles black */
+}
+
+.entry .entry-header .company,
+.entry .entry-header .school,
+.entry .entry-header .technologies {
+    font-weight: normal; /* Less emphasis */
+    color: #555;
+}
+
+.entry .entry-header .years {
+    font-weight: normal;
+    font-style: italic;
+    color: #666;
+    margin-left: auto; /* Push years to the right (if using flex) */
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+
+/* --- Description Lists (Bullet Points) --- */
+.description-list {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 20px; /* Indent bullet points */
+    list-style-type: disc; /* Default bullet style */
+}
+
+.description-list li {
+    margin-bottom: 3px;
+    text-align: left; /* Ensure list items are left-aligned */
+}
+
+/* --- Skills --- */
+.skills-list {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Arrange skills in a row */
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 8px; /* Spacing between skills */
+}
+
+.skills-list li {
+    background-color: var(--skill-tag-bg); /* Use variable */
+    color: var(--skill-tag-text); /* Use variable */
+    border: 1px solid var(--border-color); /* Maybe add border variable */
+    background-color: #e9ecef; /* Light background for skill tags */
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* Alternative inline display */
+.skills-list-inline {
+    margin: 5px 0;
+    line-height: 1.6;
+}
+
+
+/* --- Template Specific Overrides (Example - will be in TemplateX.css) --- */
+/*
+.template1 .resume-header {
+    border-bottom-color: blue;
+}
+
+.template2 .section-title {
+    text-align: left;
+    border-bottom: none;
+    border-left: 3px solid green;
+    padding-left: 8px;
+}
+
+.template2 .skills-list li {
+    background-color: lightgreen;
+    border: 1px solid green;
+}
+*/

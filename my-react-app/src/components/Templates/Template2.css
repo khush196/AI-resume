@@ -1,0 +1,117 @@
+/* --- Template 2: Modern --- */
+/* Styles specific to template2 */
+
+.template2 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Different font */
+}
+
+.template2 .resume-header {
+    text-align: left; /* Align header left */
+    border-bottom: 3px solid #007bff; /* Blue accent line */
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.template2 .resume-header .name {
+    font-size: 2.5em;
+    color: #0056b3; /* Darker blue */
+    margin-bottom: 5px;
+    font-weight: 700; /* Bolder */
+}
+
+.template2 .resume-header .title {
+    font-size: 1.4em;
+    color: #007bff;
+    margin-bottom: 15px;
+    font-weight: 300; /* Lighter weight */
+}
+
+.template2 .resume-header .contact-info {
+    font-size: 0.9em;
+    text-align: left; /* Align contact info left */
+}
+.template2 .resume-header .contact-info span {
+    display: block; /* Each contact on a new line */
+    margin: 3px 0;
+}
+ .template2 .resume-header .contact-info span::before {
+    content: ''; /* No separators needed */
+    margin: 0;
+ }
+ .template2 .resume-header .contact-info a {
+    color: #0056b3;
+ }
+
+.template2 .section-title {
+    font-size: 1.2em;
+    color: #007bff; /* Blue title */
+    border-bottom: none; /* Remove underline */
+    border-left: 4px solid #007bff; /* Add left border */
+    padding-left: 10px;
+    margin-bottom: 15px;
+    text-transform: none; /* Normal case */
+    font-weight: 600;
+}
+
+.template2 .entry {
+    margin-bottom: 15px;
+    padding-left: 14px; /* Indent entries slightly to align with title border */
+}
+
+.template2 .entry .entry-header {
+    font-size: 1.05em;
+    margin-bottom: 4px;
+    display: block; /* Stack header elements */
+}
+
+.template2 .entry .entry-header .job-title,
+.template2 .entry .entry-header .degree,
+.template2 .entry .entry-header .project-name {
+    font-weight: bold;
+    color: #333;
+    display: block; /* Ensure they take full width */
+}
+
+.template2 .entry .entry-header .company,
+.template2 .entry .entry-header .school {
+    font-style: normal;
+    color: #555;
+    display: block;
+}
+ .template2 .entry .entry-header .technologies {
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+    display: block;
+ }
+
+
+.template2 .entry .entry-header .years {
+    font-style: normal;
+    font-weight: normal;
+    color: #777;
+    font-size: 0.9em;
+    display: block; /* Put years on its own line */
+}
+
+
+.template2 .description-list {
+    padding-left: 20px;
+    list-style-type: '- '; /* Use dash for bullets */
+}
+.template2 .description-list li {
+    margin-bottom: 5px;
+}
+
+.template2 .skills-list {
+    gap: 8px;
+}
+
+.template2 .skills-list li {
+    background-color: #e7f3ff; /* Light blue background */
+    color: #0056b3; /* Dark blue text */
+    border: none;
+    padding: 5px 12px;
+    border-radius: 15px; /* Pill shape */
+    font-size: 0.95em;
+}

@@ -1,0 +1,69 @@
+/* client/src/components/ThemeToggle.css */
+
+.theme-toggle-button {
+    background-color: var(--toggle-bg, #ffffff); /* Use CSS variable for background */
+    border: 1px solid var(--toggle-border, #ffffff);
+    border-radius: 30px; /* Make it pill-shaped */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the icon container */
+    font-size: 1.2rem; /* Adjust icon size */
+    height: 55px; /* Fixed height */
+    width: 60px;  /* Fixed width */
+    padding: 2px;
+    position: relative; /* Needed for absolute positioning of icons */
+    overflow: hidden; /* Hide icons moving out */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.theme-toggle-button:hover {
+   border-color: var(--toggle-border-hover, #ffffff);
+}
+
+.icon-container {
+    position: relative;
+    width: 25px; /* Match icon size */
+    height: 25px;
+}
+
+.theme-toggle-button .icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    color: var(--toggle-icon-color, #f39c12); /* Default sun color */
+}
+
+.theme-toggle-button .icon.moon {
+    color: var(--toggle-icon-color-dark, #f1c40f); /* Moon color */
+    transform: translateY(150%); /* Start moon below */
+    opacity: 0;
+}
+
+.theme-toggle-button .icon.sun {
+    transform: translateY(0); /* Start sun visible */
+    opacity: 1;
+}
+
+/* Dark mode active states */
+.theme-toggle-button[aria-label*="light"] .icon.sun { /* When switching TO light */
+    transform: translateY(0);
+    opacity: 1;
+}
+.theme-toggle-button[aria-label*="light"] .icon.moon {
+    transform: translateY(150%);
+    opacity: 0;
+}
+
+.theme-toggle-button[aria-label*="dark"] .icon.sun { /* When switching TO dark */
+    transform: translateY(-150%); /* Move sun up */
+    opacity: 0;
+}
+.theme-toggle-button[aria-label*="dark"] .icon.moon {
+    transform: translateY(0); /* Move moon in */
+    opacity: 1;
+}

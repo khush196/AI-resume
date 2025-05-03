@@ -1,0 +1,120 @@
+/* --- Template 3: Compact --- */
+/* Styles specific to template3 - focusing on saving space */
+
+.template3 {
+    font-family: 'Lato', sans-serif; /* Choose a clean, readable font */
+    font-size: 10pt; /* Slightly smaller base font size */
+    line-height: 1.4;
+}
+
+.template3 .resume-header {
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+}
+
+.template3 .resume-header .name {
+    font-size: 1.8em;
+    margin-bottom: 3px;
+}
+
+.template3 .resume-header .title {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.template3 .resume-header .contact-info {
+    font-size: 0.85em; /* Smaller contact info */
+    display: flex; /* Arrange horizontally */
+    justify-content: center; /* Center the items */
+    flex-wrap: wrap;
+    gap: 0 10px; /* Horizontal gap only */
+}
+.template3 .resume-header .contact-info span::before {
+    content: '|'; /* Pipe separator */
+    margin: 0 6px;
+    color: #aaa;
+ }
+ .template3 .resume-header .contact-info span:first-child::before {
+    content: ''; margin: 0;
+ }
+
+.template3 .section-title {
+    font-size: 1.1em; /* Smaller section titles */
+    color: #444;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.template3 .entry {
+    margin-bottom: 8px; /* Reduce space between entries */
+}
+
+.template3 .entry .entry-header {
+    font-size: 1em; /* Standard font size */
+    margin-bottom: 2px; /* Less space below header */
+    display: flex;
+    justify-content: space-between; /* Push years to the right */
+    align-items: baseline; /* Align text nicely */
+    gap: 10px;
+}
+.template3 .entry .entry-header .job-title,
+.template3 .entry .entry-header .degree,
+.template3 .entry .entry-header .project-name {
+    font-weight: bold;
+}
+ .template3 .entry .entry-header .company,
+ .template3 .entry .entry-header .school {
+    font-style: italic;
+    color: #666;
+    margin-left: 5px; /* Small space after title */
+ }
+ /* Combine title and company/school */
+ .template3 .entry .entry-header > div:first-child { /* Target the container for title+company */
+    flex-grow: 1; /* Allow it to take space */
+ }
+
+.template3 .entry .entry-header .years {
+    font-size: 0.9em;
+    color: #777;
+    white-space: nowrap;
+    font-style: normal;
+}
+
+.template3 .description-list {
+    padding-left: 18px; /* Less indent */
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 0.95em; /* Slightly smaller description text */
+    list-style-position: outside; /* Ensure bullets don't overlap text */
+}
+.template3 .description-list li {
+    margin-bottom: 1px; /* Very tight spacing */
+}
+
+.template3 .skills-list {
+    gap: 4px 8px; /* Less gap */
+    margin-top: 5px;
+}
+
+.template3 .skills-list li {
+    background-color: transparent; /* No background */
+    border: 1px solid #ddd;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.85em; /* Smaller skill tags */
+    color: #555;
+}
+
+.template3 .projects .entry .entry-header .technologies {
+     font-size: 0.85em;
+     color: #777;
+     font-style: italic;
+     margin-left: 8px;
+}
