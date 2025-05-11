@@ -1,13 +1,11 @@
 import React from 'react';
 import { useResume } from '../../contexts/ResumeContext';
-import './ResumePreview.css'; // We'll create this CSS file for base preview styles
+import './ResumePreview.css'; // I'll create this CSS file for base preview styles
 
 // Helper function to format bullet points from textarea input
 const formatBulletPoints = (text) => {
     if (!text) return null;
-    // Split by newline, filter out empty lines, trim whitespace,
-    // and wrap lines starting with '*' or '-' in <li> tags.
-    // Other lines can be wrapped in <p> or just displayed as is, depending on preference.
+    
     return text.split('\n')
         .map(line => line.trim())
         .filter(line => line.length > 0)
@@ -16,9 +14,8 @@ const formatBulletPoints = (text) => {
                 // Remove the bullet character and wrap in <li>
                 return <li key={index}>{line.substring(1).trim()}</li>;
             }
-            // Optional: Treat other lines as paragraphs or simple text
-            // return <p key={index}>{line}</p>;
-            return null; // Or ignore lines not starting with bullets for cleaner lists
+           
+            return null; 
         }).filter(Boolean); // Remove null entries
 };
 
@@ -34,14 +31,10 @@ function ResumePreview() {
     const hasSkills = skills.some(skill => skill.trim().length > 0);
     const hasProjects = projects.some(proj => proj.name || proj.description);
 
-    // The main container div will have a base class and the selected template class
-    // This allows CSS to target elements differently based on the template
-    // e.g., .template1 .resume-header { ... } vs .template2 .resume-header { ... }
-    const previewClassName = `resume-preview ${selectedTemplate}`; // e.g., "resume-preview template1"
+    const previewClassName = `resume-preview ${selectedTemplate}`; 
 
     return (
-        // The outer div ID matches what we'll use for PDF generation
-        // The className applies template styling
+      
         <div className={previewClassName}>
 
             {/* --- Header Section --- */}
