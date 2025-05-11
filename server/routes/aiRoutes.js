@@ -3,8 +3,6 @@ const { improveText } = require('../controllers/aiController'); // Import contro
 
 const router = express.Router();
 
-// Define the route for improving text
-// POST /api/ai/improve
 router.post('/improve', improveText);
 
 // Add other AI-related routes here later
