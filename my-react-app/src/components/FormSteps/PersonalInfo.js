@@ -1,5 +1,5 @@
 import React from 'react';
-import { useResume } from '../../contexts/ResumeContext'; // Import the hook
+import { useResume } from '../../contexts/ResumeContext'; 
 
 function PersonalInfo() {
     // Get the state and updater function from the context
@@ -9,7 +9,7 @@ function PersonalInfo() {
     // Handler function for input changes
     const handleChange = (e) => {
         const { name, value } = e.target;
-        updatePersonalInfo(name, value); // Update the context state
+        updatePersonalInfo(name, value); 
     };
 
     return (
