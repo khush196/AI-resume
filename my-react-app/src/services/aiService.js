@@ -1,19 +1,6 @@
-// client/src/services/aiService.js
-
-// Define the base URL for your backend API
-// In development, this is typically http://localhost:PORT
-// In production, this will be your deployed backend URL
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5001'; // Use environment variable or default
-
-/**
- * Calls the backend API to get AI suggestions for improving text.
- * @param {string} textToImprove - The text the user wants to enhance.
- * @param {'bulletPoint' | 'projectDescription' | 'skillSuggestion' | 'generic'} context - The type of text being improved, helps tailor the prompt.
- * @returns {Promise<string>} - A promise that resolves with the improved text.
- * @throws {Error} - Throws an error if the API call fails.
- */
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5001'; 
 export const getAISuggestion = async (textToImprove, context) => {
-    console.log(`Sending to backend: Text: "${textToImprove}", Context: ${context}`); // Debug log
+    console.log(`Sending to backend: Text: "${textToImprove}", Context: ${context}`); 
 
     try {
         const response = await fetch(`${API_BASE_URL}/api/ai/improve`, {
@@ -37,7 +24,7 @@ export const getAISuggestion = async (textToImprove, context) => {
              throw new Error("API Error: Received empty suggestion from the server.");
         }
 
-        console.log("Received from backend:", data.improvedText); // Debug log
+        console.log("Received from backend:", data.improvedText); 
         return data.improvedText; // Return only the improved text string
 
     } catch (error) {
@@ -47,5 +34,4 @@ export const getAISuggestion = async (textToImprove, context) => {
     }
 };
 
-// Add other AI service functions here later if needed
-// export const suggestSkills = async (jobTitle) => { ... }
+
