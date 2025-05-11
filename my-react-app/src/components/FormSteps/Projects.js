@@ -1,6 +1,6 @@
 import React from 'react';
 import { useResume } from '../../contexts/ResumeContext';
-import { getAISuggestion } from '../../services/aiService'; // Import the service
+import { getAISuggestion } from '../../services/aiService'; 
 
 function Projects() {
     // Get loading state and setter
