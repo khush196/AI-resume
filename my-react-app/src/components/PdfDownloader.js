@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import html2pdf from 'html2pdf.js';
-import { useResume } from '../contexts/ResumeContext'; // Import useResume to potentially use data for filename
-
+import { useResume } from '../contexts/ResumeContext'; // 
 function PdfDownloader() {
     const [isGenerating, setIsGenerating] = useState(false);
-    const { resumeData } = useResume(); // Get resume data, e.g., for filename
+    const { resumeData } = useResume(); 
 
     const handleDownloadPdf = () => {
-        setIsGenerating(true); // Set loading state
-
+        setIsGenerating(true); 
         // 1. Get the element to print
         const element = document.getElementById('resume-preview-content');
         if (!element) {
@@ -19,11 +17,11 @@ function PdfDownloader() {
 
         // 2. Define filename (use user's name if available)
         const userName = resumeData.personalInfo.name.trim() || 'resume';
-        const filename = `${userName.replace(/\s+/g, '_')}_Resume.pdf`; // Replace spaces with underscores
+        const filename = `${userName.replace(/\s+/g, '_')}_Resume.pdf`; 
 
         // 3. Configure html2pdf options (adjust as needed)
         const opt = {
-            margin:       [0.5, 0.2, 0.5, 0.2], // Margins: [top, left, bottom, right] in inches
+            margin:       [0.5, 0.2, 0.5, 0.2], // Margins:in inches
             filename:     filename,
             image:        { type: 'jpeg', quality: 0.98 }, // Image quality
             html2canvas:  {
@@ -47,10 +45,6 @@ function PdfDownloader() {
                 alert("Sorry, there was an error generating the PDF. Please try again.");
             });
 
-        // Alternative: Use .outputPdf('blob').then(...) if you need the PDF blob for other purposes
-    };
-
-    return (
         <button
             className="download-button" // Use class from App.css
             onClick={handleDownloadPdf}
