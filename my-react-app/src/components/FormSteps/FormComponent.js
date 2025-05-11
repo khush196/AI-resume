@@ -8,7 +8,7 @@ import Projects from './Projects';
 
 // Basic styling for the form container (can be moved to a CSS file)
 const formContainerStyle = {
-    padding: '10px', // Add some internal padding if needed
+    padding: '10px',
 };
 
 const sectionStyle = {
