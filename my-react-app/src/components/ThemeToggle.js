@@ -1,7 +1,7 @@
 import React from 'react';
 import { useResume } from '../contexts/ResumeContext';
-import { FaSun, FaMoon } from 'react-icons/fa'; // Import icons
-import './ThemeToggle.css'; // We'll create this CSS file next
+import { FaSun, FaMoon } from 'react-icons/fa'; 
+import './ThemeToggle.css'; 
 
 function ThemeToggle() {
     const { theme, toggleTheme } = useResume();
