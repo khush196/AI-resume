@@ -6,9 +6,7 @@ const availableTemplates = [
     { id: 'template1', name: 'Classic' },
     { id: 'template2', name: 'Modern' },
     { id: 'template3', name: 'Compact' },
-    // Add more templates here as you create them
-    // { id: 'template4', name: 'Creative' },
-    // { id: 'template5', name: 'Professional' },
+   
 ];
 
 function TemplateSelector() {
