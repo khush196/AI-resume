@@ -1,9 +1,7 @@
 /* Basic Reset */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "IBM Plex Mono", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f4f7f6; /* Light background */
@@ -11,8 +9,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: "IBM Plex Mono", monospace;
 }
 
 * {
@@ -33,9 +30,7 @@ code {
 
 /* --- Light Theme (Default) --- */
 :root {
-  --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-               'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-               sans-serif;
+  --font-main: "IBM Plex Mono", monospace;
 
   /* Backgrounds */
   --bg-primary: #f4f7f6;         /* Main page background */
@@ -55,6 +50,7 @@ code {
   --text-on-button-secondary: #333;
   --text-link: #0056b3;
   --text-skill-tag: #333;
+  --section-title-color: #333; 
 
   /* Borders */
   --border-color-light: #dee2e6; /* Lighter borders */
@@ -63,7 +59,7 @@ code {
 
   /* Toggle Button */
   --toggle-bg: #ced4da;
-  --toggle-border: #adb5bd;
+  --toggle-border: #31363b;
   --toggle-border-hover: #6c757d;
   --toggle-icon-color: #f39c12; /* Sun */
   --toggle-icon-color-dark: #f1c40f; /* Moon */
@@ -73,7 +69,25 @@ code {
 }
 
 /* --- Dark Theme --- */
-html[data-theme='dark'] {
+html[data-theme='dark'] 
+
+{
+  body {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  background-color: rgb(27, 26, 26); /* TEMPORARY FALLBACK */
+  color: rgb(255, 255, 255); /* TEMPORARY FALLBACK */
+
+  .template-selector{
+  background-color: rgb(27, 26, 26); 
+  color: rgb(255, 255, 255); 
+  
+  h3{
+    color : rgb(255, 255, 255);}
+}
+
+}
+
   /* Backgrounds */
   --bg-primary: #121212;         /* Very dark main background */
   --bg-secondary: #1e1e1e;       /* Card/Form section background (slightly lighter) */
@@ -92,6 +106,7 @@ html[data-theme='dark'] {
   --text-on-button-secondary: #e1e1e1;/* Light text on dark secondary button */
   --text-link: #bb86fc;          /* Link color matching primary button */
   --text-skill-tag: #e1e1e1;
+    --section-title-color: #ffffff; 
 
   /* Borders */
   --border-color-light: #3a3a3a; /* Lighter borders (dark mode context) */

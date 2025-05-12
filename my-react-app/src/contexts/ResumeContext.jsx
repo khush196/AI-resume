@@ -30,13 +30,13 @@ export const ResumeProvider = ({ children }) => {
     });
 
     // --- NEW: Effect to apply theme class to HTML element and save to localStorage ---
-    useEffect(() => {
-        // Apply the theme attribute to the root HTML element
-        document.documentElement.setAttribute('data-theme', theme);
-        // Save the theme preference to localStorage
+    
+     useEffect(() => {
+          document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('resumeBuilderTheme', theme);
-    }, [theme]); // Re-run only when theme changes
+    }, [theme]); 
 
+  
     // --- NEW: Function to toggle theme ---
     const toggleTheme = () => {
         setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));

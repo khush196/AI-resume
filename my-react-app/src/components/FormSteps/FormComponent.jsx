@@ -19,12 +19,14 @@ const sectionStyle = {
 
 const sectionTitleStyle = {
     fontSize: '1.4rem',
-    color: '#333',
+    color: 'var(--section-title-color)',
     marginBottom: '15px',
-    borderBottom: '2px solid #6c5ce7', // Accent color underline
+    borderBottom: '2px solid var(--bg-button-primary)', // Accent color underline
     paddingBottom: '5px',
     display: 'inline-block', // Keep underline only under text
 };
+
+
 
 
 function FormComponent() {

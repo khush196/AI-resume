@@ -107,7 +107,24 @@ function Experience() {
                             rows={4}
                         />
                         {/* --- UPDATED AI Button --- */}
-                        
+                         {/* --- ADD THIS BUTTON BACK --- */}
+                      {/*   <button
+                            type="button"
+                            className="ai-button"
+                            onClick={() => handleImproveDescription(index)}
+                            disabled={loadingAI}
+                            title="Improve description with AI"
+                        >
+                            {loadingAI ? (
+                                <>
+                                    Improving...
+                                    <span className="loading-spinner" style={{ borderTopColor: '#fff', marginLeft: '5px' }}></span>
+                                </>
+                            ) : (
+                                '✨ Improve'
+                            )}
+                        </button> */}
+                         {/* --- END ADDING BUTTON BACK --- */}
                          {/* --- End UPDATED --- */}
                     </div>
                 </div>

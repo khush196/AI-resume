@@ -1,16 +1,16 @@
-/* client/src/components/ThemeToggle.css */
+
 
 .theme-toggle-button {
     background-color: var(--toggle-bg, #ffffff); /* Use CSS variable for background */
-    border: 1px solid var(--toggle-border, #ffffff);
+    border: 1px solid var(--toggle-border, #000000);
     border-radius: 30px; /* Make it pill-shaped */
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center; /* Center the icon container */
     font-size: 1.2rem; /* Adjust icon size */
-    height: 55px; /* Fixed height */
-    width: 60px;  /* Fixed width */
+    height: 40px; /* Fixed height */
+    width: 45px;  /* Fixed width */
     padding: 2px;
     position: relative; /* Needed for absolute positioning of icons */
     overflow: hidden; /* Hide icons moving out */
@@ -24,8 +24,8 @@
 
 .icon-container {
     position: relative;
-    width: 25px; /* Match icon size */
-    height: 25px;
+    width: 30px; /* Match icon size */
+    height: 30px;
 }
 
 .theme-toggle-button .icon {

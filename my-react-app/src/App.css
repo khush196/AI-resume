@@ -113,7 +113,7 @@
 .add-button {
     background-color: var(--primary-color); /* Example */
     color: var(--button-text-color);
-    background-color: #28a745;
+    background-color: #0f6d6d;
     color: white;
     padding: 8px 15px;
     border: none;
@@ -124,7 +124,7 @@
     display: inline-block; /* Allow margin-top */
 }
  .add-button:hover {
-    background-color: #218838;
+    background-color: #011c1c;
  }
 
 
@@ -186,7 +186,7 @@
 }
 
 .template-options button {
-    background-color: #007bff;
+    background-color: #0f6d6d;
     color: white;
     border: none;
     padding: 8px 15px;
@@ -198,11 +198,13 @@
 }
 
 .template-options button:hover {
-    background-color: #0056b3;
+    background-color: #011c1c;
+
 }
 
  .template-options button.active {
-     background-color: #004085;
+     background-color: #011c1c;
+ 
      font-weight: bold;
  }
 
@@ -213,7 +215,7 @@
   display: block;
   margin: 20px auto; /* Center the button */
   padding: 12px 25px;
-  background-color: #17a2b8; /* Teal color */
+  background-color: #0f6d6d; /* Teal color */
   color: white;
   border: none;
   border-radius: 5px;
@@ -223,7 +225,8 @@
 }
 
 .download-button:hover {
-    background-color: #117a8b;
+    background-color: #011c1c;
+ 
 }
 
 

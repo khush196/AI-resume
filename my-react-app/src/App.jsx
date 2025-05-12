@@ -19,7 +19,7 @@ function App() {
     <ThemeToggle /> {/* <-- RENDER THE BUTTON */}
   </div>
   <div className="App">
-    <h1>Resume Builder</h1>
+    <h1>AI Resume Builder</h1>
     <div className="form-section">
       <h2>Build Your Resume</h2>
       <TemplateSelector /> {/* Add template selector */}

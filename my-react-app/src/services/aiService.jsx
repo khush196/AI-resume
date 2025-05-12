@@ -3,7 +3,7 @@
 // Define the base URL for your backend API
 // In development, this is typically http://localhost:PORT
 // In production, this will be your deployed backend URL
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5001'; // Use environment variable or default
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001';
 
 /**
  * Calls the backend API to get AI suggestions for improving text.

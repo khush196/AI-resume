@@ -2,15 +2,13 @@
   "name": "my-react-app",
   "private": true,
   "version": "1.0.0",
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "dev": "vite",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
+ "scripts": {
+  "dev": "vite", 
+  "build": "vite build", 
+  "lint": "eslint .",
+  "preview": "vite preview" 
+  
+},
   "dependencies": {
     "html2pdf.js": "^0.10.3",
     "react": "^19.0.0",
