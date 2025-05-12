@@ -4,11 +4,9 @@ import Experience from './Experience';
 import Education from './Education';
 import Skills from './Skills';
 import Projects from './Projects';
-// Import other section components as you create them (e.g., Certifications, Summary)
-
 // Basic styling for the form container (can be moved to a CSS file)
 const formContainerStyle = {
-    padding: '10px', // Add some internal padding if needed
+    padding: '10px',
 };
 
 const sectionStyle = {

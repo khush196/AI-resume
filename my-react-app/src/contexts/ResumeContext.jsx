@@ -10,7 +10,7 @@ const initialResumeData = {
     education: [{ id: 1, degree: '', school: '', years: '' }],
     skills: [''], // Start with one empty skill entry
     projects: [{ id: 1, name: '', description: '', technologies: '' }],
-    // Add other sections like certifications, summary, etc. as needed
+
 };
 
 // 2. Create the Provider Component
@@ -23,9 +23,6 @@ export const ResumeProvider = ({ children }) => {
     // Initialize theme from localStorage or default to 'light'
     const [theme, setTheme] = useState(() => {
         const savedTheme = localStorage.getItem('resumeBuilderTheme');
-        // Add basic check for system preference if no saved theme exists (optional)
-        // const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        // return savedTheme || (prefersDark ? 'dark' : 'light');
         return savedTheme || 'light'; // Default to light if nothing saved
     });
 
@@ -54,10 +51,6 @@ export const ResumeProvider = ({ children }) => {
         }));
     };
 
-    // Updater for list items (experience, education, skills, projects)
-    // type: 'experience', 'education', 'skills', 'projects'
-    // index: the index of the item in the array
-    // field: the specific field within the item object (e.g., 'jobTitle', 'degree', or null for simple arrays like skills)
     // value: the new value
     const updateListItem = (type, index, field, value) => {
         setResumeData(prevData => {
@@ -105,12 +98,7 @@ export const ResumeProvider = ({ children }) => {
         setResumeData(prevData => {
             const list = [...prevData[type]];
             list.splice(index, 1); // Remove item at the given index
-             // If it's the last item, maybe add a default empty one back? (Optional UX choice)
-             // if (list.length === 0 && type !== 'skills') {
-             //    addListItem(type); // Re-add one empty item
-             // } else if (list.length === 0 && type === 'skills') {
-             //     list.push(''); // Ensure skills array always has at least one input potentially
-             // }
+        
             return { ...prevData, [type]: list };
         });
     };

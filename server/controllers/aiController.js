@@ -6,7 +6,7 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 // Controller function to handle text improvement requests
 const improveText = async (req, res) => {
-    const { textToImprove, context } = req.body; // Get text and context (e.g., "bullet point", "project description")
+    const { textToImprove, context } = req.body; // Get text and context
 
     if (!textToImprove) {
         return res.status(400).json({ message: "No text provided to improve." });
@@ -29,13 +29,13 @@ const improveText = async (req, res) => {
             prompt = `Improve this text for a resume: "${textToImprove}"`; // Generic fallback
         }
 
-        console.log("Sending prompt to Gemini:", prompt); // For debugging
+        console.log("Sending prompt to Gemini:", prompt); 
 
         const result = await model.generateContent(prompt);
         const response = await result.response;
         const improvedText = response.text();
 
-        console.log("Received response from Gemini:", improvedText); // For debugging
+        console.log("Received response from Gemini:", improvedText); 
 
         res.status(200).json({ improvedText: improvedText });
 

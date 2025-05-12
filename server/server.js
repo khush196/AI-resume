@@ -1,12 +1,10 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
-const aiRoutes = require('./routes/aiRoutes'); // Import the AI routes
+const aiRoutes = require('./routes/aiRoutes'); 
 
-// Load environment variables from .env file
 dotenv.config();
 
-// Initialize Express app
 const app = express();
 
 // Middleware
@@ -14,7 +12,7 @@ app.use(cors()); // Enable CORS for all origins (adjust for production later)
 app.use(express.json()); // Allow the server to accept JSON data in request bodies
 
 // --- API Routes ---
-app.use('/api/ai', aiRoutes); // Mount the AI routes under /api/ai path
+app.use('/api/ai', aiRoutes);
 
 // --- Basic Route for Testing ---
 app.get('/', (req, res) => {
@@ -22,7 +20,7 @@ app.get('/', (req, res) => {
 });
 
 // --- Start the Server ---
-const PORT = process.env.PORT || 5001; // Use port from .env or default to 5001
+const PORT = process.env.PORT || 5001; 
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
