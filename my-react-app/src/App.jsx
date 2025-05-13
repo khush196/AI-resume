@@ -4,18 +4,19 @@ import FormComponent from './components/FormSteps/FormComponent';
 import ResumePreview from './components/Preview/ResumePreview'; 
 import TemplateSelector from './components/TemplateSelector'; 
 import PdfDownloader from './components/PdfDownloader'; 
-import ThemeToggle from './components/ThemeToggle'; 
+ 
 // --- IMPORT TEMPLATE CSS FILES ---
 import './components/Templates/Template1.css';
 import './components/Templates/Template2.css';
 import './components/Templates/Template3.css';
 
 
-function App() {
+function App(){
+
   return (
 <div>
   <div style={{ position: 'absolute', top: '15px', right: '20px', zIndex: 10 }}>
-    <ThemeToggle /> 
+    
   </div>
   <div className="App">
     <h1>AI Resume Builder</h1>

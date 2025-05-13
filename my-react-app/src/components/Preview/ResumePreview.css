@@ -2,8 +2,10 @@
 /* These styles will be common across templates unless overridden */
 
 .resume-preview {
-    font-family: 'Arial', sans-serif; /* Basic font stack */
-    color: #333;
+    font-family:  'Roboto' ;
+    background-color: #ffffff !important;
+ color: #000000 !important;   /* Basic font stack */
+    color: #e9ecef;
     line-height: 1.5;
     font-size: 11pt; /* Common resume font size */
     /* Dimensions can be set by template CSS, e.g., width: 8.5in; height: 11in; */
@@ -11,7 +13,16 @@
     max-width: 100%;
     margin: 0 auto; /* Center within its container if width is fixed */
 color: var(--text-color); /* Use variable */
+
 }
+
+.resume-preview-container {
+    background-color: #e0e0e0 !important; /* Light grey surrounding the white "paper" */
+    padding: 20px; /* Space around the "paper" */
+    border: 1px solid #cccccc; /* Optional border for the container */
+    /* If you previously used CSS vars here, they are overridden by !important above for .resume-preview */
+}
+
 
 /* --- Header --- */
 .resume-header {
@@ -19,15 +30,16 @@ color: var(--text-color); /* Use variable */
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 2px solid #ccc; /* Simple separator */
-    border-bottom: 2px solid var(--border-color); /* Use variable */
+    border-bottom: 2px solid  #333333 !important; /* Use variable */
 }
 
 .resume-header .name {
+    font-family:'Roboto', serif;;
     font-size: 2em; /* Larger font for name */
     margin: 0 0 5px 0;
     font-weight: bold;
-    color: #000;
-    color: var(--text-color); /* Or a specific header color variable */
+    color: #141414;
+    color: var(--text-primary); /* Or a specific header color variable */
 }
 
 .resume-header .title {
@@ -35,7 +47,7 @@ color: var(--text-color); /* Use variable */
     margin: 0 0 10px 0;
     font-weight: normal;
     color: #555;
-    color: var(--text-color); /* Or a secondary text variable */
+    color: var(--text-secondary); /* Or a secondary text variable */
 }
 
 .resume-header .contact-info {
@@ -64,8 +76,8 @@ color: var(--text-color); /* Use variable */
 .resume-section .section-title {
     font-size: 1.3em;
     font-weight: bold;
-    color: #333;
-    border-bottom: 1px solid #ddd;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color-medium);
     padding-bottom: 3px;
     margin-bottom: 10px;
     text-transform: uppercase; /* Common resume style */
@@ -89,20 +101,20 @@ color: var(--text-color); /* Use variable */
 .entry .entry-header .job-title,
 .entry .entry-header .degree,
 .entry .entry-header .project-name {
-    color: #000; /* Make primary titles black */
+    color: var(--text-primary); /* Make primary titles black */
 }
 
 .entry .entry-header .company,
 .entry .entry-header .school,
 .entry .entry-header .technologies {
     font-weight: normal; /* Less emphasis */
-    color: #555;
+    color: var(--text-secondary);
 }
 
 .entry .entry-header .years {
     font-weight: normal;
     font-style: italic;
-    color: #666;
+    color: var(--text-muted); 
     margin-left: auto; /* Push years to the right (if using flex) */
     white-space: nowrap; /* Prevent wrapping */
 }

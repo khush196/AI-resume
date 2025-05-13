@@ -28,7 +28,7 @@ code {
 /* Define Light theme variables */
 /* src/index.css */
 
-/* --- Light Theme (Default) --- */
+/* /* --- Light Theme (Default) --- */
 :root {
   --font-main: "IBM Plex Mono", monospace;
 
@@ -44,8 +44,8 @@ code {
 
   /* Text Colors */
   --text-primary: #212529;       /* Main text, headings */
-  --text-secondary: #495057;     /* Subheadings, less important text */
-  --text-muted: #6c757d;         /* Placeholder text, subtle info */
+  --text-secondary: #777e85;     /* Subheadings, less important text */
+  --text-muted: #767d83;         /* Placeholder text, subtle info */
   --text-on-button-primary: #ffffff;
   --text-on-button-secondary: #333;
   --text-link: #0056b3;
@@ -68,61 +68,6 @@ code {
   --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
-/* --- Dark Theme --- */
-html[data-theme='dark'] 
-
-{
-  body {
-  margin: 0;
-  font-family: "IBM Plex Mono", monospace;
-  background-color: rgb(27, 26, 26); /* TEMPORARY FALLBACK */
-  color: rgb(255, 255, 255); /* TEMPORARY FALLBACK */
-
-  .template-selector{
-  background-color: rgb(27, 26, 26); 
-  color: rgb(255, 255, 255); 
-  
-  h3{
-    color : rgb(255, 255, 255);}
-}
-
-}
-
-  /* Backgrounds */
-  --bg-primary: #121212;         /* Very dark main background */
-  --bg-secondary: #1e1e1e;       /* Card/Form section background (slightly lighter) */
-  --bg-tertiary: #2a2a2a;        /* Preview area background */
-  --bg-resume-paper: #1e1e1e;    /* Resume preview 'paper' */
-  --bg-input: #2c2c2c;           /* Input field background */
-  --bg-button-primary: #bb86fc;   /* Vibrant purple for dark mode actions */
-  --bg-button-secondary: #3a3a3a; /* Dark grey for secondary buttons */
-  --bg-skill-tag: #3a3a3a;
-
-  /* Text Colors */
-  --text-primary: #e1e1e1;       /* Main light text */
-  --text-secondary: #b0b0b0;     /* Subheadings, less important text */
-  --text-muted: #888888;         /* Placeholder text, subtle info */
-  --text-on-button-primary: #121212; /* Dark text on light primary button */
-  --text-on-button-secondary: #e1e1e1;/* Light text on dark secondary button */
-  --text-link: #bb86fc;          /* Link color matching primary button */
-  --text-skill-tag: #e1e1e1;
-    --section-title-color: #ffffff; 
-
-  /* Borders */
-  --border-color-light: #3a3a3a; /* Lighter borders (dark mode context) */
-  --border-color-medium: #555555;/* Standard borders (inputs) */
-  --border-color-dark: #707070;  /* Slightly darker borders */
-
-  /* Toggle Button */
-  --toggle-bg: #555555;
-  --toggle-border: #707070;
-  --toggle-border-hover: #aaaaaa;
-  --toggle-icon-color: #f39c12; /* Sun */
-  --toggle-icon-color-dark: #f1c40f; /* Moon */
-
-  /* Other */
-  --shadow-color: rgba(255, 255, 255, 0.1); /* Lighter shadow for dark mode */
-}
 
 /* --- Apply Base Styles & Transitions --- */
 body {

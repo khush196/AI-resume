@@ -1,125 +1,129 @@
-import React, { createContext, useState, useContext,  useEffect  } from 'react';
+// src/contexts/ResumeContext.jsx (or .js)
 
-// 1. Create the Context
+import React, { createContext, useState, useContext } from 'react';
+
 const ResumeContext = createContext();
 
-// Initial state for the resume data
+// --- UPDATED initialResumeData for skills ---
 const initialResumeData = {
-    personalInfo: { name: '', title: '', email: '', phone: '', linkedin: '', github: '', location: '' },
-    experience: [{ id: 1, jobTitle: '', company: '', years: '', description: '' }],
-    education: [{ id: 1, degree: '', school: '', years: '' }],
-    skills: [''], // Start with one empty skill entry
-    projects: [{ id: 1, name: '', description: '', technologies: '' }],
-
+    personalInfo: { /* ... */ },
+    summary: { /* ... */ },
+    // Skills is now an object with keys for each category
+    skills: {
+        programmingLanguages: '',
+        frameworks: '',
+        tools: '' // Using 'tools' as the key for "Other Tools"
+    },
+    projects: [{ /* ... */ }],
+    education: [{ /* ... */ }],
+    certifications: [{ /* ... */ }],
+    extracurricular: [{ /* ... */ }],
 };
 
-// 2. Create the Provider Component
+
 export const ResumeProvider = ({ children }) => {
     const [resumeData, setResumeData] = useState(initialResumeData);
-    const [selectedTemplate, setSelectedTemplate] = useState('template1'); // Default template
-    const [loadingAI, setLoadingAI] = useState(false); // State for AI loading
+    const [selectedTemplate, setSelectedTemplate] = useState('template1');
+    const [loadingAI, setLoadingAI] = useState(false);
 
-      // --- NEW: Theme State ---
-    // Initialize theme from localStorage or default to 'light'
-    const [theme, setTheme] = useState(() => {
-        const savedTheme = localStorage.getItem('resumeBuilderTheme');
-        return savedTheme || 'light'; // Default to light if nothing saved
-    });
+    // --- Updaters for non-list items ---
+    const updatePersonalInfo = (field, value) => { /* ... as before ... */ };
+    const updateSummary = (field, value) => { /* ... as before ... */ };
 
-    // --- NEW: Effect to apply theme class to HTML element and save to localStorage ---
-    
-     useEffect(() => {
-          document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('resumeBuilderTheme', theme);
-    }, [theme]); 
-
-  
-    // --- NEW: Function to toggle theme ---
-    const toggleTheme = () => {
-        setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
-    };
-    // --- End NEW ---
-
-    
-    // --- Functions to update resume data ---
-
-    // Generic updater for simple fields (like personal info)
-    const updatePersonalInfo = (field, value) => {
+    // --- NEW Updater specifically for skill categories ---
+    const updateSkillCategory = (category, value) => {
+        // category will be 'programmingLanguages', 'frameworks', or 'tools'
         setResumeData(prevData => ({
             ...prevData,
-            personalInfo: { ...prevData.personalInfo, [field]: value }
+            skills: {
+                 ...prevData.skills,
+                 [category]: value // Update the specific category string
+                }
         }));
     };
 
-    // value: the new value
+    // --- List item updaters (no longer handle 'skills') ---
     const updateListItem = (type, index, field, value) => {
+        // Ensure 'skills' type is not processed here if called accidentally
+        if (type === 'skills') {
+             console.warn("updateListItem called for 'skills', use updateSkillCategory instead.");
+             return; // Or handle appropriately if skills could ever be a list again
+        }
         setResumeData(prevData => {
+            // ... existing logic for projects, education, etc. ...
+            if (!prevData[type] || !Array.isArray(prevData[type])) return prevData;
+            if (index < 0 || index >= prevData[type].length) return prevData;
+
             const list = [...prevData[type]];
             if (field) {
-                // Update a field within an object in the list
                 list[index] = { ...list[index], [field]: value };
             } else {
-                // Update a simple string item in the list (like skills)
-                list[index] = value;
+                 console.warn(`updateListItem called for ${type} without a 'field'.`);
             }
             return { ...prevData, [type]: list };
         });
     };
 
-    // Add a new item to a list (experience, education, projects, skills)
     const addListItem = (type) => {
+        // Ensure 'skills' type is not processed here
+         if (type === 'skills') {
+             console.warn("addListItem called for 'skills'. Skills are now an object.");
+             return;
+        }
         setResumeData(prevData => {
-            let newItem;
+            // ... existing logic for adding projects, education items ...
+            // Make sure the switch statement doesn't have a 'skills' case anymore
+            // or handle it appropriately.
+             if (!prevData[type] || !Array.isArray(prevData[type])) return prevData;
             const list = prevData[type];
-            const newId = list.length > 0 ? Math.max(...list.map(item => item.id || 0)) + 1 : 1; // Basic ID generation
+            let newItem;
+            const newId = Date.now() + Math.random();
 
             switch (type) {
-                case 'experience':
-                    newItem = { id: newId, jobTitle: '', company: '', years: '', description: '' };
-                    break;
-                case 'education':
-                    newItem = { id: newId, degree: '', school: '', years: '' };
-                    break;
-                case 'projects':
-                    newItem = { id: newId, name: '', description: '', technologies: '' };
-                    break;
-                 case 'skills':
-                    newItem = ''; // Just add an empty string for a new skill input
-                     return { ...prevData, [type]: [...list, newItem] }; // Skills don't need ID here
+                // NO 'skills' case needed here anymore
+                case 'projects': /* ... */ break;
+                case 'education': /* ... */ break;
+                case 'certifications': /* ... */ break;
+                case 'extracurricular': /* ... */ break;
                 default:
-                    return prevData; // Should not happen
+                    console.error("Unknown list item type for addListItem:", type);
+                    return prevData;
             }
             return { ...prevData, [type]: [...list, newItem] };
         });
     };
 
-    // Remove an item from a list
     const removeListItem = (type, index) => {
+        // Ensure 'skills' type is not processed here
+         if (type === 'skills') {
+             console.warn("removeListItem called for 'skills'. Skills are now an object.");
+             return;
+        }
         setResumeData(prevData => {
+             // ... existing logic for removing projects, education items ...
+             if (!prevData[type] || !Array.isArray(prevData[type])) return prevData;
+             if (index < 0 || index >= prevData[type].length) return prevData;
+
             const list = [...prevData[type]];
-            list.splice(index, 1); // Remove item at the given index
-        
+            list.splice(index, 1);
             return { ...prevData, [type]: list };
         });
     };
 
-
-    // --- Value provided by the context ---
+    // --- Context Value ---
     const value = {
         resumeData,
-        setResumeData, // Allow direct setting if needed, though granular updaters are safer
+        setResumeData,
         updatePersonalInfo,
-        updateListItem,
-        addListItem,
-        removeListItem,
+        updateSummary,
+        updateSkillCategory, // <-- EXPORT the new function
+        updateListItem,      // Keep for other lists
+        addListItem,         // Keep for other lists
+        removeListItem,      // Keep for other lists
         selectedTemplate,
         setSelectedTemplate,
         loadingAI,
-        setLoadingAI,
-          // --- NEW: Add theme state and toggle function ---
-          theme,
-          toggleTheme
-          // --- End NEW ---
+        setLoadingAI
     };
 
     return (
@@ -129,7 +133,6 @@ export const ResumeProvider = ({ children }) => {
     );
 };
 
-// 3. Custom Hook to use the Context easily
 export const useResume = () => {
     const context = useContext(ResumeContext);
     if (context === undefined) {

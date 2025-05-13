@@ -1,68 +1,47 @@
 import React from 'react';
-import PersonalInfo from './PersonalInfo';
-import Experience from './Experience';
-import Education from './Education';
-import Skills from './Skills';
-import Projects from './Projects';
-// Basic styling for the form container (can be moved to a CSS file)
-const formContainerStyle = {
-    padding: '10px',
-};
+import HeaderInfo from './HeaderInfo';
+import SummarySection from './SummarySection';
+import SkillsSection from './SkillsSection'; // Assuming you kept SkillsSection.js (modified Skills.js)
+import ProjectsSection from './ProjectsSection';
+import EducationSection from './EducationSection';
+import CertificationsSection from './CertificationsSection';
+import ExtracurricularSection from './ExtracurricularSection';
 
-const sectionStyle = {
-    marginBottom: '30px', // Space between sections
-    paddingBottom: '20px', // Padding at the bottom of each section
-    borderBottom: '1px solid #eee', // Separator line
-};
-
-const sectionTitleStyle = {
-    fontSize: '1.4rem',
-    color: 'var(--section-title-color)',
-    marginBottom: '15px',
-    borderBottom: '2px solid var(--bg-button-primary)', // Accent color underline
-    paddingBottom: '5px',
-    display: 'inline-block', // Keep underline only under text
-};
-
-
-
+const sectionStyle = { /* ... keep your existing style ... */ };
+const sectionTitleStyle = { /* ... keep your existing style ... */ };
 
 function FormComponent() {
     return (
-        <div style={formContainerStyle}>
+        <div> {/* Removed formContainerStyle for brevity, add back if needed */}
             <div style={sectionStyle}>
                 <h3 style={sectionTitleStyle}>Personal Information</h3>
-                <PersonalInfo />
+                <HeaderInfo />
             </div>
-
             <div style={sectionStyle}>
-                <h3 style={sectionTitleStyle}>Work Experience</h3>
-                <Experience />
+                <h3 style={sectionTitleStyle}>Summary</h3>
+                <SummarySection />
             </div>
-
+            <div style={sectionStyle}>
+                <h3 style={sectionTitleStyle}>Technical Skills</h3>
+                <SkillsSection />
+            </div>
+            <div style={sectionStyle}>
+                <h3 style={sectionTitleStyle}>Relevant Projects</h3>
+                <ProjectsSection />
+            </div>
             <div style={sectionStyle}>
                 <h3 style={sectionTitleStyle}>Education</h3>
-                <Education />
+                <EducationSection />
             </div>
-
-             <div style={sectionStyle}>
-                <h3 style={sectionTitleStyle}>Skills</h3>
-                <Skills />
-            </div>
-
             <div style={sectionStyle}>
-                <h3 style={sectionTitleStyle}>Projects</h3>
-                <Projects />
-            </div>
-
-            {/* Add other sections here */}
-            {/* <div style={sectionStyle}>
                 <h3 style={sectionTitleStyle}>Certifications</h3>
-                <Certifications />
-            </div> */}
-
+                <CertificationsSection />
+            </div>
+            <div style={sectionStyle}>
+                <h3 style={sectionTitleStyle}>Extracurricular Activities / Awards</h3>
+                <ExtracurricularSection />
+            </div>
         </div>
     );
 }
-
 export default FormComponent;
