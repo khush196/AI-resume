@@ -1,7 +1,6 @@
-// my-react-app/src/components/Navbar.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // For navigation
-import './Navbar.css'; // We'll create this for styling
+import './Navbar.css'; 
 
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +13,7 @@ function Navbar() {
         <nav className="navbar">
             <div className="navbar-container">
                 <Link to="/" className="navbar-logo">
-                    AI Resume Pro {/* Or your desired logo/name */}
+                    AI Resume Pro 
                 </Link>
 
                 <div className="menu-icon" onClick={toggleMenu}>
@@ -44,12 +43,7 @@ function Navbar() {
                             Contact
                         </Link>
                     </li>
-                    {/* You might want a link to the builder too, or handle it via "Get Started" */}
-                    {/*  <li className="nav-item nav-item-builder">
-                        <Link to="/build" className="nav-links-builder" onClick={() => setIsMenuOpen(false)}>
-                            Build Resume
-                        </Link>
-                    </li> */}
+                   
                 </ul>
             </div>
         </nav>

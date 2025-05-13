@@ -1,6 +1,5 @@
-// my-react-app/src/pages/ContactPage.jsx
 import React, { useState } from 'react';
-import './ContactPage.css'; // We'll create this for styling
+import './ContactPage.css'; 
 
 function ContactPage() {
     const [formData, setFormData] = useState({
@@ -28,26 +27,7 @@ function ContactPage() {
         // Simulate API call / email sending
         console.log('Form Data Submitted:', formData);
 
-        // In a real app, you'd send this data to a backend API:
-        // try {
-        //   const response = await fetch('/api/contact', { // Your backend endpoint
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(formData),
-        //   });
-        //   if (response.ok) {
-        //     setSubmitMessage('Thank you for your message! We will get back to you soon.');
-        //     setFormData({ name: '', email: '', subject: '', message: '' }); // Reset form
-        //   } else {
-        //     const errorData = await response.json();
-        //     setSubmitMessage(`Error: ${errorData.message || 'Something went wrong.'}`);
-        //   }
-        // } catch (error) {
-        //   setSubmitMessage('Error: Could not send message. Please try again later.');
-        //   console.error('Contact form submission error:', error);
-        // }
-
-        // Simulate delay for demo
+       
         await new Promise(resolve => setTimeout(resolve, 1500));
         setSubmitMessage(`Thank you, ${formData.name}! Your message about "${formData.subject}" has been received (simulated).`);
         // setFormData({ name: '', email: '', subject: '', message: '' }); // Optionally reset form

@@ -1,6 +1,6 @@
-// my-react-app/src/pages/AboutPage.jsx
+
 import React from 'react';
-import './AboutPage.css'; // We'll create this for styling
+import './AboutPage.css'; 
 
 function AboutPage() {
     return (
