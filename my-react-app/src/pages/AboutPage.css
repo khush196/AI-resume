@@ -1,0 +1,102 @@
+/* my-react-app/src/pages/AboutPage.css */
+.about-page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.7;
+    color: var(--text-primary); /* Use theme variables */
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.about-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.about-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.about-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: var(--bg-secondary); /* Card-like background for sections */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.about-section h2 {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--primary-color, #6c5ce7); /* Use primary or fallback */
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.about-section h3 {
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.about-section p,
+.about-section li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+}
+
+.about-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.about-section a {
+    color: var(--text-link);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.about-section a:hover {
+    text-decoration: underline;
+}
+
+.about-cta {
+    text-align: center;
+    background-color: transparent; /* No card background for final CTA */
+    box-shadow: none;
+    border-top: 1px solid var(--border-color-light);
+    padding-top: 30px;
+}
+
+.about-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Re-use hero-cta-button style from HomePage.css or define here if different */
+.about-cta .hero-cta-button {
+    background-color: var(--bg-button-primary, #6c5ce7);
+    color: var(--text-on-button-primary, #ffffff);
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.about-cta .hero-cta-button:hover {
+    background-color: #5a4bd1; /* Darker shade */
+    transform: translateY(-2px);
+}
