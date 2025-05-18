@@ -26,8 +26,8 @@
     flex: 1; /* Takes up available space */
     min-width: 500px; /* Minimum width */
     max-width: 800px; /* Maximum width for resume preview */
-    border: 1px solid #ccc;
-    border-radius: 8px;
+   /*  border: 1px solid #ccc;
+    border-radius: 8px; */
     background-color: #e9ecef; /* Slightly different background for preview area */
     padding: 20px;
     height: calc(100vh - 60px); /* Match form height */

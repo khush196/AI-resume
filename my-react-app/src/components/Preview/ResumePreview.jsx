@@ -29,6 +29,8 @@ function ResumePreview() {
     // Now, 'resumeData' and 'selectedTemplate' are defined variables within this component.
     const { resumeData, selectedTemplate } = useResume();
 
+     console.log('ResumePreview: Rendering. resumeData:', resumeData, 'Selected Template:', selectedTemplate); 
+
     // 3. NOW YOU CAN SAFELY USE resumeData.
     // For convenience, you can destructure further from resumeData.
     // Make sure the properties you destructure here (personalInfo, summary, etc.)

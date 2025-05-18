@@ -11,8 +11,8 @@ function ProjectsSection() {
         updateListItem('projects', index, name, value);
     };
 
-    const handleAddProject = () => addListItem('projects');
-    const handleRemoveProject = (index) => removeListItem('projects', index);
+    const handleAddProject = () => { addListItem('projects');
+    const handleRemoveProject = (index) => removeListItem('projects', index); }
 
     const handleImproveDescription = async (index) => {
         const currentDescription = projectList[index].description;

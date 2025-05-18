@@ -37,6 +37,16 @@ function PdfDownloader() {
             // pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
         };
 
+console.log("PdfDownloader: Element to print:", element); // DEBUG
+if (!element) {
+    console.error("Resume preview element NOT FOUND!");
+    setIsGenerating(false);
+    alert("Critical Error: Resume content area not found for PDF generation.");
+    return;
+}
+// Check its content
+console.log("PdfDownloader: Element innerHTML:", element.innerHTML.substring(0, 500)); // Log first 500 chars
+
         html2pdf().from(element).set(opt).save()
             .then(() => {
                 setIsGenerating(false);

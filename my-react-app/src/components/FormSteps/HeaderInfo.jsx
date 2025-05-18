@@ -7,6 +7,7 @@ function HeaderInfo() {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        console.log(`HeaderInfo: Updating ${name} to ${value}`); 
         updatePersonalInfo(name, value);
     };
 

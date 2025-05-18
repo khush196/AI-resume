@@ -2,7 +2,7 @@
 /* These styles will be common across templates unless overridden */
 
 .resume-preview {
-    font-family:  'Roboto' ;
+    font-family:  'Merriweather' ;
     background-color: #ffffff !important;
  color: #000000 !important;   /* Basic font stack */
     color: #e9ecef;
@@ -17,9 +17,9 @@ color: var(--text-color); /* Use variable */
 }
 
 .resume-preview-container {
-    background-color: #e0e0e0 !important; /* Light grey surrounding the white "paper" */
+   /*  background-color: #e0e0e0 !important; */ /* Light grey surrounding the white "paper" */
     padding: 20px; /* Space around the "paper" */
-    border: 1px solid #cccccc; /* Optional border for the container */
+   /*  border: 1px solid #cccccc; */ /* Optional border for the container */
     /* If you previously used CSS vars here, they are overridden by !important above for .resume-preview */
 }
 
@@ -80,7 +80,7 @@ color: var(--text-color); /* Use variable */
     border-bottom: 1px solid var(--border-color-medium);
     padding-bottom: 3px;
     margin-bottom: 10px;
-    text-transform: uppercase; /* Common resume style */
+    text-transform: none; /* Common resume style */
     letter-spacing: 1px;
 }
 
@@ -161,7 +161,7 @@ color: var(--text-color); /* Use variable */
 
 
 /* --- Template Specific Overrides (Example - will be in TemplateX.css) --- */
-/*
+
 .template1 .resume-header {
     border-bottom-color: blue;
 }
@@ -177,4 +177,3 @@ color: var(--text-color); /* Use variable */
     background-color: lightgreen;
     border: 1px solid green;
 }
-*/

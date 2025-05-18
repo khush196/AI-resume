@@ -1,125 +1,170 @@
-// src/contexts/ResumeContext.jsx (or .js)
-
 import React, { createContext, useState, useContext } from 'react';
 
+// 1. Create the Context
 const ResumeContext = createContext();
 
-// --- UPDATED initialResumeData for skills ---
+// Initial state for the resume data, including new sections
 const initialResumeData = {
-    personalInfo: { /* ... */ },
-    summary: { /* ... */ },
-    // Skills is now an object with keys for each category
-    skills: {
-        programmingLanguages: '',
-        frameworks: '',
-        tools: '' // Using 'tools' as the key for "Other Tools"
-    },
-    projects: [{ /* ... */ }],
-    education: [{ /* ... */ }],
-    certifications: [{ /* ... */ }],
-    extracurricular: [{ /* ... */ }],
+    personalInfo: { name: '', title: '', email: '', phone: '', linkedin: '', github: '', location: '' },
+    summary: '', // Added a summary section as it's common
+    experience: [{ id: Date.now() + Math.random(), jobTitle: '', company: '', years: '', description: '' }], // Using timestamp for potentially better unique ID
+    education: [{ id: Date.now() + Math.random(), degree: '', school: '', years: '' }],
+    skills: [''], // Start with one empty skill entry
+    projects: [{ id: Date.now() + Math.random(), name: '', description: '', technologies: '' }],
+    certifications: [{ id: Date.now() + Math.random(), name: '', authority: '', year: '' }], // Initialize certifications
+    extracurricular: [{ id: Date.now() + Math.random(), activity: '', role: '', description: '' }], // Initialize extracurricular activities
 };
 
-
+// 2. Create the Provider Component
 export const ResumeProvider = ({ children }) => {
     const [resumeData, setResumeData] = useState(initialResumeData);
-    const [selectedTemplate, setSelectedTemplate] = useState('template1');
-    const [loadingAI, setLoadingAI] = useState(false);
+    const [selectedTemplate, setSelectedTemplate] = useState('template1'); // Default template
+    const [loadingAI, setLoadingAI] = useState(false); // State for AI loading
 
-    // --- Updaters for non-list items ---
-    const updatePersonalInfo = (field, value) => { /* ... as before ... */ };
-    const updateSummary = (field, value) => { /* ... as before ... */ };
+    // --- Functions to update resume data ---
 
-    // --- NEW Updater specifically for skill categories ---
-    const updateSkillCategory = (category, value) => {
-        // category will be 'programmingLanguages', 'frameworks', or 'tools'
-        setResumeData(prevData => ({
-            ...prevData,
-            skills: {
-                 ...prevData.skills,
-                 [category]: value // Update the specific category string
-                }
-        }));
+    // Generic updater for simple fields (like personal info, summary)
+    const updateField = (section, field, value) => {
+        if (section === 'summary') { // Handle summary directly as it's not an object
+            setResumeData(prevData => ({
+                ...prevData,
+                summary: value
+            }));
+        } else {
+            setResumeData(prevData => ({
+                ...prevData,
+                [section]: { ...prevData[section], [field]: value }
+            }));
+        }
     };
 
-    // --- List item updaters (no longer handle 'skills') ---
+
+    // Updater for list items (experience, education, skills, projects, certifications, extracurricular)
     const updateListItem = (type, index, field, value) => {
-        // Ensure 'skills' type is not processed here if called accidentally
-        if (type === 'skills') {
-             console.warn("updateListItem called for 'skills', use updateSkillCategory instead.");
-             return; // Or handle appropriately if skills could ever be a list again
-        }
         setResumeData(prevData => {
-            // ... existing logic for projects, education, etc. ...
-            if (!prevData[type] || !Array.isArray(prevData[type])) return prevData;
-            if (index < 0 || index >= prevData[type].length) return prevData;
+            // Ensure the list for the given type exists and is an array
+            if (!prevData[type] || !Array.isArray(prevData[type])) {
+                console.error(`Cannot updateListItem: resumeData.${type} is not an array or doesn't exist.`);
+                return prevData; // Prevent crash
+            }
 
             const list = [...prevData[type]];
+            if (index < 0 || index >= list.length) {
+                console.error(`Cannot updateListItem: Invalid index ${index} for ${type}`);
+                return prevData; // Prevent crash
+            }
+
             if (field) {
+                // Update a field within an object in the list
                 list[index] = { ...list[index], [field]: value };
             } else {
-                 console.warn(`updateListItem called for ${type} without a 'field'.`);
+                // Update a simple string item in the list (like skills)
+                list[index] = value;
             }
             return { ...prevData, [type]: list };
         });
     };
 
+    // Add a new item to a list
     const addListItem = (type) => {
-        // Ensure 'skills' type is not processed here
-         if (type === 'skills') {
-             console.warn("addListItem called for 'skills'. Skills are now an object.");
-             return;
-        }
         setResumeData(prevData => {
-            // ... existing logic for adding projects, education items ...
-            // Make sure the switch statement doesn't have a 'skills' case anymore
-            // or handle it appropriately.
-             if (!prevData[type] || !Array.isArray(prevData[type])) return prevData;
-            const list = prevData[type];
             let newItem;
+            // Ensure the list for the given type exists and is an array, or initialize it if it's a known new type
+            let list = prevData[type];
+            if (!Array.isArray(list)) {
+                // If it's a known section that might not be initialized yet, initialize it.
+                if (type === 'certifications' || type === 'extracurricular' || type === 'experience' || type === 'education' || type === 'projects' || type === 'skills') {
+                    console.warn(`Initializing empty array for resumeData.${type} in addListItem`);
+                    list = [];
+                } else {
+                    console.error(`Error in addListItem: prevData[${type}] is not an array and not a known initializable type. Current prevData:`, prevData);
+                    return prevData; // Prevent crash
+                }
+            }
+
+
+            // More robust unique ID generation (client-side only)
             const newId = Date.now() + Math.random();
 
             switch (type) {
-                // NO 'skills' case needed here anymore
-                case 'projects': /* ... */ break;
-                case 'education': /* ... */ break;
-                case 'certifications': /* ... */ break;
-                case 'extracurricular': /* ... */ break;
-                default:
-                    console.error("Unknown list item type for addListItem:", type);
+                case 'summary': // Summary is not a list, handle separately if "add" means something else
+                    console.warn("addListItem called for 'summary', which is not a list. No action taken.");
                     return prevData;
+                case 'experience':
+                    newItem = { id: newId, jobTitle: '', company: '', years: '', description: '' };
+                    break;
+                case 'education':
+                    newItem = { id: newId, degree: '', school: '', years: '' };
+                    break;
+                case 'projects':
+                    newItem = { id: newId, name: '', description: '', technologies: '' };
+                    break;
+                case 'certifications':
+                    newItem = { id: newId, name: '', authority: '', year: '' };
+                    break;
+                case 'extracurricular':
+                    newItem = { id: newId, activity: '', role: '', description: '' };
+                    break;
+                case 'skills':
+                    newItem = ''; // Skills array contains strings
+                    // For skills, directly return the updated state as newItem is just a string
+                    return { ...prevData, [type]: [...list, newItem] };
+                default:
+                    console.error(`Unknown type in addListItem: ${type}`);
+                    return prevData; // Return previous data to prevent crash
             }
+
+            // Ensure newItem is defined before trying to spread it.
+            // This check is particularly for object-based list items.
+            if (newItem === undefined) {
+                console.error(`newItem is undefined for type: ${type}. This should not happen if the switch case is correct.`);
+                return prevData;
+            }
+
             return { ...prevData, [type]: [...list, newItem] };
         });
     };
 
+    // Remove an item from a list
     const removeListItem = (type, index) => {
-        // Ensure 'skills' type is not processed here
-         if (type === 'skills') {
-             console.warn("removeListItem called for 'skills'. Skills are now an object.");
-             return;
-        }
         setResumeData(prevData => {
-             // ... existing logic for removing projects, education items ...
-             if (!prevData[type] || !Array.isArray(prevData[type])) return prevData;
-             if (index < 0 || index >= prevData[type].length) return prevData;
+            if (!prevData[type] || !Array.isArray(prevData[type])) {
+                console.error(`Cannot removeListItem: resumeData.${type} is not an array or doesn't exist.`);
+                return prevData;
+            }
 
             const list = [...prevData[type]];
+            if (index < 0 || index >= list.length) {
+                console.error(`Cannot removeListItem: Invalid index ${index} for ${type}`);
+                return prevData;
+            }
+
             list.splice(index, 1);
+
+            // Optional: If it's the last item for sections that expect at least one entry, add a default empty one back.
+            // This behavior is up to your desired UX.
+            if (list.length === 0) {
+                if (type === 'skills') {
+                    list.push(''); // Ensure skills array always has at least one input field
+                } else if (type === 'experience' || type === 'education' || type === 'projects' || type === 'certifications' || type === 'extracurricular') {
+                    // For these, you might want to add a blank entry back or just leave it empty
+                    // Example: addListItem(type); // This would re-add one, but be careful of infinite loops if not handled well.
+                    // For simplicity now, we'll allow them to become empty.
+                }
+            }
             return { ...prevData, [type]: list };
         });
     };
 
-    // --- Context Value ---
+
+    // --- Value provided by the context ---
     const value = {
         resumeData,
-        setResumeData,
-        updatePersonalInfo,
-        updateSummary,
-        updateSkillCategory, // <-- EXPORT the new function
-        updateListItem,      // Keep for other lists
-        addListItem,         // Keep for other lists
-        removeListItem,      // Keep for other lists
+        setResumeData, // Generally prefer granular updaters
+        updateField,   // Renamed from updatePersonalInfo for broader use
+        updateListItem,
+        addListItem,
+        removeListItem,
         selectedTemplate,
         setSelectedTemplate,
         loadingAI,
@@ -133,6 +178,7 @@ export const ResumeProvider = ({ children }) => {
     );
 };
 
+// 3. Custom Hook to use the Context easily
 export const useResume = () => {
     const context = useContext(ResumeContext);
     if (context === undefined) {
