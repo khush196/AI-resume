@@ -86,7 +86,7 @@
 
 /* Re-use hero-cta-button style from HomePage.css or define here if different */
 .about-cta .hero-cta-button {
-    background-color: var(--bg-button-primary, #6c5ce7);
+    background-color: #0f6d6d;
     color: var(--text-on-button-primary, #ffffff);
     padding: 12px 25px;
     font-size: 1.1rem;
@@ -97,6 +97,6 @@
 }
 
 .about-cta .hero-cta-button:hover {
-    background-color: #5a4bd1; /* Darker shade */
+    background-color: #011c1c;/* Darker shade */
     transform: translateY(-2px);
 }

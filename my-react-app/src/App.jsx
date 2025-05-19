@@ -1,4 +1,3 @@
-// my-react-app/src/App.jsx
 import React from 'react';
 import { Routes, Route } from 'react-router-dom'; // Import Routes and Route
 import Navbar from './components/Navbar'; // Your Navbar
@@ -16,7 +15,7 @@ import './components/Templates/Template3.css';
 
 // Placeholder components for About, Pricing, Contact (create these later)
 
-const PricingPage = () => <div style={{padding: '50px', textAlign: 'center'}}><h2>Pricing</h2><p>Details about your pricing plans.</p></div>;
+const PricingPage = () => <div style={{padding: '50px', textAlign: 'center'}}><h2>Pricing</h2><p>Comming Soon..!</p></div>;
 
 
 function App() {
