@@ -2,15 +2,14 @@ import React from 'react';
 import { useResume } from '../../contexts/ResumeContext';
 
 function SummarySection() {
-    const { resumeData, setResumeData } = useResume(); // Using setResumeData for direct update
-    const summary = resumeData.summary;
+    const { resumeData, updateField  } = useResume(); 
+    console.log('SummarySection - updateField:', updateField);
+    console.log('SummarySection - resumeData.summary:', resumeData?.summary);
+    const summary = resumeData.summary || { title: '', description: '' };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setResumeData(prev => ({
-            ...prev,
-            summary: { ...prev.summary, [name]: value }
-        }));
+        updateField('summary', name, value);
     };
 
     return (
@@ -36,12 +35,7 @@ function SummarySection() {
                     rows={5}
                     placeholder="Write a brief summary about your skills, experience, and career goals."
                 />
-                 {/* Optional AI Button for Summary */}
-                 {/*
-                 <button type="button" className="ai-button" onClick={() => handleImproveSummary()}>
-                    ✨ Improve Summary
-                 </button>
-                 */}
+                 
             </div>
         </div>
     );

@@ -1,14 +1,14 @@
 import React from 'react';
-import { useResume } from '../../contexts/ResumeContext';
+import { useResume } from '../../contexts/ResumeContext.jsx';
 
 function HeaderInfo() {
-    const { resumeData, updatePersonalInfo } = useResume();
-    const personalInfo = resumeData.personalInfo;
+    const { resumeData, updateField  } = useResume();
+    const personalInfo = resumeData.personalInfo || {};
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        console.log(`HeaderInfo: Updating ${name} to ${value}`); 
-        updatePersonalInfo(name, value);
+        console.log(`HeaderInfo: Updating personalInfo.${name} to ${value}`); 
+       updateField ('personalInfo', name, value);
     };
 
     return (

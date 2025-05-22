@@ -1,31 +1,30 @@
 import React, { createContext, useState, useContext } from 'react';
 
-// 1. Create the Context
 const ResumeContext = createContext();
 
-// Initial state for the resume data, including new sections
 const initialResumeData = {
-    personalInfo: { name: '', title: '', email: '', phone: '', linkedin: '', github: '', location: '' },
-    summary: '', // Added a summary section as it's common
+    personalInfo: { name: '', title: '', email: '', phone: '', linkedin: '', github: '', location: '',  portfolio: '' },
+    summary: { title: '', description: '' },
     experience: [{ id: Date.now() + Math.random(), jobTitle: '', company: '', years: '', description: '' }], // Using timestamp for potentially better unique ID
-    education: [{ id: Date.now() + Math.random(), degree: '', school: '', years: '' }],
-    skills: [''], // Start with one empty skill entry
-    projects: [{ id: Date.now() + Math.random(), name: '', description: '', technologies: '' }],
-    certifications: [{ id: Date.now() + Math.random(), name: '', authority: '', year: '' }], // Initialize certifications
+    education: [{ id: Date.now() + Math.random(), degree: '', institution: '', gpa: '', dates: ''}],
+    skills: {
+        programmingLanguages: '',
+        frameworks: '',
+        tools: ''
+    }, 
+    projects: [{ id: Date.now() + Math.random(), title: '', date: '', description: '', technologies: '' }],
+    certifications: [{ id: Date.now() + Math.random(), name: '', organization: '', year: '' }], // Initialize certifications
     extracurricular: [{ id: Date.now() + Math.random(), activity: '', role: '', description: '' }], // Initialize extracurricular activities
 };
 
-// 2. Create the Provider Component
+
 export const ResumeProvider = ({ children }) => {
     const [resumeData, setResumeData] = useState(initialResumeData);
-    const [selectedTemplate, setSelectedTemplate] = useState('template1'); // Default template
-    const [loadingAI, setLoadingAI] = useState(false); // State for AI loading
-
-    // --- Functions to update resume data ---
-
-    // Generic updater for simple fields (like personal info, summary)
+    const [selectedTemplate, setSelectedTemplate] = useState('template1'); 
+    const [loadingAI, setLoadingAI] = useState(false); 
+    
     const updateField = (section, field, value) => {
-        if (section === 'summary') { // Handle summary directly as it's not an object
+        if (section === 'summary') { 
             setResumeData(prevData => ({
                 ...prevData,
                 summary: value
@@ -38,47 +37,50 @@ export const ResumeProvider = ({ children }) => {
         }
     };
 
+    const updateSkillCategory = (categoryKey, value) => {
+    setResumeData(prevData => ({
+        ...prevData,
+        skills: {
+            ...prevData.skills,
+            [categoryKey]: value
+        }
+    }));
+};
 
-    // Updater for list items (experience, education, skills, projects, certifications, extracurricular)
     const updateListItem = (type, index, field, value) => {
         setResumeData(prevData => {
-            // Ensure the list for the given type exists and is an array
             if (!prevData[type] || !Array.isArray(prevData[type])) {
                 console.error(`Cannot updateListItem: resumeData.${type} is not an array or doesn't exist.`);
-                return prevData; // Prevent crash
+                return prevData; 
             }
 
             const list = [...prevData[type]];
             if (index < 0 || index >= list.length) {
                 console.error(`Cannot updateListItem: Invalid index ${index} for ${type}`);
-                return prevData; // Prevent crash
+                return prevData; 
             }
 
             if (field) {
-                // Update a field within an object in the list
                 list[index] = { ...list[index], [field]: value };
             } else {
-                // Update a simple string item in the list (like skills)
                 list[index] = value;
             }
             return { ...prevData, [type]: list };
         });
     };
 
-    // Add a new item to a list
+
     const addListItem = (type) => {
         setResumeData(prevData => {
             let newItem;
-            // Ensure the list for the given type exists and is an array, or initialize it if it's a known new type
             let list = prevData[type];
             if (!Array.isArray(list)) {
-                // If it's a known section that might not be initialized yet, initialize it.
                 if (type === 'certifications' || type === 'extracurricular' || type === 'experience' || type === 'education' || type === 'projects' || type === 'skills') {
                     console.warn(`Initializing empty array for resumeData.${type} in addListItem`);
                     list = [];
                 } else {
                     console.error(`Error in addListItem: prevData[${type}] is not an array and not a known initializable type. Current prevData:`, prevData);
-                    return prevData; // Prevent crash
+                    return prevData; 
                 }
             }
 
@@ -160,8 +162,9 @@ export const ResumeProvider = ({ children }) => {
     // --- Value provided by the context ---
     const value = {
         resumeData,
-        setResumeData, // Generally prefer granular updaters
-        updateField,   // Renamed from updatePersonalInfo for broader use
+        setResumeData, 
+        updateField, 
+        updateSkillCategory,
         updateListItem,
         addListItem,
         removeListItem,

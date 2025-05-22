@@ -1,15 +1,9 @@
-// src/components/Preview/ResumePreview.jsx
-
 import React from 'react';
-// 1. IMPORT THE useResume HOOK
-// Make sure this path is correct based on your folder structure.
-// If ResumePreview.jsx is in src/components/Preview/
-// and ResumeContext.jsx is in src/contexts/
-// then this path should be: '../../contexts/ResumeContext'
-import { useResume } from '../../contexts/ResumeContext';
-import './ResumePreview.css'; // Your base preview styles
 
-// Helper function to format bullet points (you had this before)
+import { useResume } from '../../contexts/ResumeContext';
+import './ResumePreview.css'; 
+
+
 const formatBulletPoints = (text) => {
     if (!text) return null;
     return text.split('\n')
@@ -24,30 +18,22 @@ const formatBulletPoints = (text) => {
 };
 
 function ResumePreview() {
-    // 2. CALL useResume() AND DESTRUCTURE resumeData (AND selectedTemplate)
-    // This line gets the current resumeData and selectedTemplate from your global context.
-    // Now, 'resumeData' and 'selectedTemplate' are defined variables within this component.
+   
     const { resumeData, selectedTemplate } = useResume();
 
      console.log('ResumePreview: Rendering. resumeData:', resumeData, 'Selected Template:', selectedTemplate); 
 
-    // 3. NOW YOU CAN SAFELY USE resumeData.
-    // For convenience, you can destructure further from resumeData.
-    // Make sure the properties you destructure here (personalInfo, summary, etc.)
-    // actually exist in your 'initialResumeData' in ResumeContext.js
+    
     const {
-        personalInfo = {}, // Provide default empty objects to prevent errors if a section is missing
+        personalInfo = {}, 
         summary = {},
         skills = { programmingLanguages: '', frameworks: '', tools: '' },
         projects = [],
         education = [],
         certifications = [],
-        extracurricular = [] // Or whatever you named this section
-    } = resumeData || {}; // Use resumeData OR an empty object if resumeData itself is somehow undefined initially
+        extracurricular = [] 
+    } = resumeData || {}; 
 
-    // --- The rest of your component logic from here onwards can use these variables ---
-
-    // Basic check if a section should be rendered
     const hasProjects = projects.some(proj => proj.title || proj.description);
     const hasEducation = education.some(edu => edu.degree || edu.institution);
    const hasSkills = skills.programmingLanguages?.trim() || skills.frameworks?.trim() || skills.tools?.trim();
@@ -56,7 +42,7 @@ function ResumePreview() {
     
 
 
-    const previewClassName = `resume-preview ${selectedTemplate}`; // e.g., "resume-preview template1"
+    const previewClassName = `resume-preview ${selectedTemplate}`; //resume-preview template1
 
     return (
         <div className={previewClassName}> {/* The ID "resume-preview-content" should be on the parent div in App.js */}
@@ -92,13 +78,7 @@ function ResumePreview() {
                 </section>
             )}
 {/* 
-            // Get the skills object (providing default)
-  const { skills = { programmingLanguages: '', frameworks: '', tools: '' } } = resumeData || {};
-
-// Check if there's anything to display in the skills section
-const hasSkills = skills.programmingLanguages || skills.frameworks || skills.tools;
-
-           // ... (inside the return JSX) ... */}
+         
 
 {/* --- Technical Skills Section --- */}
  {hasSkills && (
