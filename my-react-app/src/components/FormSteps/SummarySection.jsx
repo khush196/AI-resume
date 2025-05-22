@@ -1,5 +1,5 @@
 import React from 'react';
-import { useResume } from '../../contexts/ResumeContext';
+import { useResume } from '../../contexts/ResumeContext.jsx';
 
 function SummarySection() {
     const { resumeData, updateField  } = useResume(); 

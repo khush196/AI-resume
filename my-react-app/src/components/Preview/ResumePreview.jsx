@@ -35,19 +35,18 @@ function ResumePreview() {
     } = resumeData || {}; 
 
     const hasProjects = projects.some(proj => proj.title || proj.description);
-    const hasEducation = education.some(edu => edu.degree || edu.institution);
+    const hasEducation = education.some(edu => edu.degree ||edu.course || edu.institution);
    const hasSkills = skills.programmingLanguages?.trim() || skills.frameworks?.trim() || skills.tools?.trim();
     const hasCertifications = certifications.some(cert => cert.name || cert.organization);
     const hasExtracurricular = extracurricular.some(activity => activity.title || activity.description);
     
 
 
-    const previewClassName = `resume-preview ${selectedTemplate}`; //resume-preview template1
+    const previewClassName = `resume-preview ${selectedTemplate}`;
 
     return (
-        <div className={previewClassName}> {/* The ID "resume-preview-content" should be on the parent div in App.js */}
+        <div className={previewClassName}> {}
 
-            {/* --- Header Section (using the new structure from your resume) --- */}
             {(personalInfo.name || personalInfo.email) && ( // Check if there's any data to display
                 <header className="resume-header">
                     {personalInfo.name && <h1 className="name">{personalInfo.name}</h1>}
@@ -140,7 +139,9 @@ function ResumePreview() {
                             <div key={`edu-${edu.id || index}`} className="entry">
                                 <div className="entry-header education-header">
                                     <span className="degree-institution">
-                                        {edu.degree && <span className="degree">{edu.degree}</span>}
+                                        {edu.degree && <span className="degree">{edu.degree}</span>}, 
+
+                                          {edu.course && <span className="course">{edu.course}</span>}
                                         {edu.institution && <span className="institution">, {edu.institution}</span>}
                                         {edu.gpa && <span className="gpa"> CGPA: {edu.gpa}</span>}
                                     </span>

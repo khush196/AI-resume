@@ -1,26 +1,18 @@
-/* Base styling for the resume preview elements */
-/* These styles will be common across templates unless overridden */
-
 .resume-preview {
     font-family:  'Merriweather' ;
     background-color: #ffffff !important;
- color: #000000 !important;   /* Basic font stack */
+ color: #000000 !important;  
     color: #e9ecef;
     line-height: 1.5;
-    font-size: 11pt; /* Common resume font size */
-    /* Dimensions can be set by template CSS, e.g., width: 8.5in; height: 11in; */
-    /* Or use max-width for responsiveness within the container */
+    font-size: 11pt; 
     max-width: 100%;
-    margin: 0 auto; /* Center within its container if width is fixed */
-color: var(--text-color); /* Use variable */
-
+    margin: 0 auto; 
+color: var(--text-color); 
 }
 
 .resume-preview-container {
-   /*  background-color: #e0e0e0 !important; */ /* Light grey surrounding the white "paper" */
-    padding: 20px; /* Space around the "paper" */
-   /*  border: 1px solid #cccccc; */ /* Optional border for the container */
-    /* If you previously used CSS vars here, they are overridden by !important above for .resume-preview */
+    padding: 20px; 
+   
 }
 
 
@@ -29,17 +21,17 @@ color: var(--text-color); /* Use variable */
     text-align: center;
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #ccc; /* Simple separator */
-    border-bottom: 2px solid  #333333 !important; /* Use variable */
+    border-bottom: 2px solid #ccc; 
+    border-bottom: 2px solid  #333333 !important; 
 }
 
 .resume-header .name {
     font-family:'Roboto', serif;;
-    font-size: 2em; /* Larger font for name */
+    font-size: 2em; 
     margin: 0 0 5px 0;
     font-weight: bold;
     color: #141414;
-    color: var(--text-primary); /* Or a specific header color variable */
+    color: var(--text-primary); 
 }
 
 .resume-header .title {
@@ -47,20 +39,20 @@ color: var(--text-color); /* Use variable */
     margin: 0 0 10px 0;
     font-weight: normal;
     color: #555;
-    color: var(--text-secondary); /* Or a secondary text variable */
+    color: var(--text-secondary); 
 }
 
 .resume-header .contact-info {
     font-size: 0.9em;
     color: #444;
-    color: var(--link-color); /* Use variable */
+    color: var(--link-color);
 }
 .resume-header .contact-info span {
-    margin: 0 5px; /* Spacing between contact items */
-    white-space: nowrap; /* Prevent wrapping mid-item */
+    margin: 0 5px; 
+    white-space: nowrap; 
 }
 .resume-header .contact-info a {
-    color: #0056b3; /* Link color */
+    color: #0056b3;
     text-decoration: none;
 }
 .resume-header .contact-info a:hover {
@@ -80,7 +72,7 @@ color: var(--text-color); /* Use variable */
     border-bottom: 1px solid var(--border-color-medium);
     padding-bottom: 3px;
     margin-bottom: 10px;
-    text-transform: none; /* Common resume style */
+    text-transform: none; 
     letter-spacing: 1px;
 }
 
@@ -92,22 +84,22 @@ color: var(--text-color); /* Use variable */
 .entry .entry-header {
     font-weight: bold;
     margin-bottom: 5px;
-    display: flex; /* Use flexbox for better alignment */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    gap: 5px; /* Spacing between elements in the header */
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 5px; 
     font-size: 1.05em;
 }
 
 .entry .entry-header .job-title,
 .entry .entry-header .degree,
 .entry .entry-header .project-name {
-    color: var(--text-primary); /* Make primary titles black */
+    color: var(--text-primary); 
 }
 
 .entry .entry-header .company,
 .entry .entry-header .school,
 .entry .entry-header .technologies {
-    font-weight: normal; /* Less emphasis */
+    font-weight: normal; 
     color: var(--text-secondary);
 }
 
@@ -115,8 +107,8 @@ color: var(--text-color); /* Use variable */
     font-weight: normal;
     font-style: italic;
     color: var(--text-muted); 
-    margin-left: auto; /* Push years to the right (if using flex) */
-    white-space: nowrap; /* Prevent wrapping */
+    margin-left: auto; 
+    white-space: nowrap; 
 }
 
 
@@ -124,30 +116,30 @@ color: var(--text-color); /* Use variable */
 .description-list {
     margin-top: 5px;
     margin-bottom: 5px;
-    padding-left: 20px; /* Indent bullet points */
-    list-style-type: disc; /* Default bullet style */
+    padding-left: 20px; 
+    list-style-type: disc; 
 }
 
 .description-list li {
     margin-bottom: 3px;
-    text-align: left; /* Ensure list items are left-aligned */
+    text-align: left; 
 }
 
 /* --- Skills --- */
 .skills-list {
-    list-style: none; /* Remove default bullets */
+    list-style: none; 
     padding: 0;
     margin: 0;
-    display: flex; /* Arrange skills in a row */
-    flex-wrap: wrap; /* Allow wrapping */
-    gap: 8px; /* Spacing between skills */
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 8px; 
 }
 
 .skills-list li {
-    background-color: var(--skill-tag-bg); /* Use variable */
-    color: var(--skill-tag-text); /* Use variable */
-    border: 1px solid var(--border-color); /* Maybe add border variable */
-    background-color: #e9ecef; /* Light background for skill tags */
+    background-color: var(--skill-tag-bg); 
+    color: var(--skill-tag-text); 
+    border: 1px solid var(--border-color); 
+    background-color: #e9ecef;
     padding: 3px 8px;
     border-radius: 4px;
     font-size: 0.9em;
