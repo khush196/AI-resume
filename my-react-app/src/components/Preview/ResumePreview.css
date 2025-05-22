@@ -51,12 +51,16 @@ color: var(--text-color);
     margin: 0 5px; 
     white-space: nowrap; 
 }
-.resume-header .contact-info a {
-    color: #0056b3;
+.resume-header .contact-info-top-line {
+    color: #040b13;
+    text-decoration: none;
+}
+.resume-header .contact-info-top-line a {
+    color: #26437d;
     text-decoration: none;
 }
 .resume-header .contact-info a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 
@@ -109,6 +113,38 @@ color: var(--text-color);
     color: var(--text-muted); 
     margin-left: auto; 
     white-space: nowrap; 
+}
+
+.education-entry {
+    margin-bottom: 12px; /* Adjust spacing between education entries */
+}
+
+.education-line-1 {
+    display: flex;
+    justify-content: space-between; /* Pushes degree/course left and dates right */
+    align-items: baseline;
+    margin-bottom: 2px; /* Small space between the two lines of an education entry */
+}
+
+.education-line-1 .degree-course {
+    font-weight: bold;
+    color: var(--text-primary); /* Or a specific color for degree/course */
+}
+
+.education-line-1 .education-dates {
+    font-style: italic;
+    color: var(--text-muted); /* Or a specific color for dates */
+    white-space: nowrap; /* Prevent dates from wrapping */
+}
+
+.education-line-2 {
+    font-size: 0.95em; /* Slightly smaller for the second line */
+    color: var(--text-secondary); /* Or a specific color for institution/GPA */
+}
+
+.education-line-2 .gpa {
+    /* Any specific styling for GPA */
+    margin-left: 5px; /* Add a little space before CGPA if institution is also present */
 }
 
 

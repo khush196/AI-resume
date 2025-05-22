@@ -23,29 +23,29 @@ export const ResumeProvider = ({ children }) => {
     const [selectedTemplate, setSelectedTemplate] = useState('template1'); 
     const [loadingAI, setLoadingAI] = useState(false); 
     
-    const updateField = (section, field, value) => {
-        if (section === 'summary') { 
-            setResumeData(prevData => ({
+     const updateField = (section, field, value) => {
+        console.log(`ResumeContext: updateField for section=${section}, field=${field}, value=${value}`); // Debugging
+        setResumeData(prevData => {
+            // Ensure the section exists, especially if it's an object
+            const currentSection = prevData[section] || {};
+            const updatedSection = { ...currentSection, [field]: value };
+            return {
                 ...prevData,
-                summary: value
-            }));
-        } else {
-            setResumeData(prevData => ({
-                ...prevData,
-                [section]: { ...prevData[section], [field]: value }
-            }));
-        }
+                [section]: updatedSection
+            };
+        });
     };
 
-    const updateSkillCategory = (categoryKey, value) => {
-    setResumeData(prevData => ({
-        ...prevData,
-        skills: {
-            ...prevData.skills,
-            [categoryKey]: value
-        }
-    }));
-};
+   const updateSkillCategory = (categoryKey, value) => {
+        console.log(`ResumeContext: updateSkillCategory for categoryKey=${categoryKey}, value=${value}`); // Debugging
+        setResumeData(prevData => ({
+            ...prevData,
+            skills: {
+                ...prevData.skills,
+                [categoryKey]: value
+            }
+        }));
+    };
 
     const updateListItem = (type, index, field, value) => {
         setResumeData(prevData => {
