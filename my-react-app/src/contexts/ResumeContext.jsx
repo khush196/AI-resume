@@ -6,7 +6,7 @@ const initialResumeData = {
     personalInfo: { name: '', title: '', email: '', phone: '', linkedin: '', github: '', location: '',  portfolio: '' },
     summary: { title: '', description: '' },
     experience: [{ id: Date.now() + Math.random(), jobTitle: '', company: '', years: '', description: '' }], // Using timestamp for potentially better unique ID
-    education: [{ id: Date.now() + Math.random(), degree: '', institution: '', gpa: '', dates: ''}],
+    education: [{ id: Date.now() + Math.random(), degree: '', course: '', institution: '', gpa: '', dates: ''}],
     skills: {
         programmingLanguages: '',
         frameworks: '',
@@ -96,7 +96,7 @@ export const ResumeProvider = ({ children }) => {
                     newItem = { id: newId, jobTitle: '', company: '', years: '', description: '' };
                     break;
                 case 'education':
-                    newItem = { id: newId, degree: '', school: '', years: '' };
+                    newItem = { id: newId, degree: '', course: '', school: '', years: '' };
                     break;
                 case 'projects':
                     newItem = { id: newId, name: '', description: '', technologies: '' };

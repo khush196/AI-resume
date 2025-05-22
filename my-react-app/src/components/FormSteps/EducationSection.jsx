@@ -25,8 +25,8 @@ function EducationSection() {
                         <input type="text" id={`degree-${index}`} name="degree" value={edu.degree} onChange={(e) => handleChange(index, e)} placeholder='e.g., Btech '/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor={`degree-${index}`}>Course </label>
-                        <input type="text" id={`degree-${index}`} name="degree" value={edu.degree} onChange={(e) => handleChange(index, e)} placeholder='e.g., Computer Science & Engg.'/>
+                        <label htmlFor={`course-${index}`}>Course </label>
+                        <input type="text" id={`course-${index}`} name="course" value={edu.course} onChange={(e) => handleChange(index, e)} placeholder='e.g., Computer Science & Engg.'/>
                     </div>
                     <div className="form-group">
                         <label htmlFor={`institution-${index}`}>Institution </label>
