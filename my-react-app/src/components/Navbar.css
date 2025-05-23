@@ -62,11 +62,13 @@
 .nav-links-builder {
     color: #fff;
     background-color: #17a2b8; /* Or your primary button color */
-    padding: 8px 20px;
-    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
     text-decoration: none;
-    margin-left: 1rem;
     transition: background-color 0.3s ease;
+    height: 65%;
+    margin-top: 15px;
 }
 
 .nav-links-builder:hover {

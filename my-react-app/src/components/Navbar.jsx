@@ -18,8 +18,6 @@ function Navbar() {
 
                 <div className="menu-icon" onClick={toggleMenu}>
                     <i className={isMenuOpen ? 'fas fa-times' : 'fas fa-bars'}></i>
-                    {/* Simple text fallback if you don't have Font Awesome icons */}
-                    {/* {isMenuOpen ? 'Close' : 'Menu'} */}
                 </div>
 
                 <ul className={isMenuOpen ? 'nav-menu active' : 'nav-menu'}>
