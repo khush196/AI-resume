@@ -2,6 +2,15 @@ import React, { createContext, useState, useContext } from 'react';
 
 const ResumeContext = createContext();
 
+const getInitialAuthState = () => {
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
+    const user = localStorage.getItem('user');
+    return {
+        isAuthenticated: isAuthenticated === 'true',
+        user: user ? JSON.parse(user) : null,
+    };
+};
+
 const initialResumeData = {
     personalInfo: { name: '', title: '', email: '', phone: '', linkedin: '', github: '', location: '',  portfolio: '' },
     summary: { title: '', description: '' },
@@ -22,6 +31,36 @@ export const ResumeProvider = ({ children }) => {
     const [resumeData, setResumeData] = useState(initialResumeData);
     const [selectedTemplate, setSelectedTemplate] = useState('template1'); 
     const [loadingAI, setLoadingAI] = useState(false); 
+
+     // --- Authentication State ---
+    const initialAuth = getInitialAuthState();
+    const [isAuthenticated, setIsAuthenticated] = useState(initialAuth.isAuthenticated);
+    const [currentUser, setCurrentUser] = useState(initialAuth.user); // Store user info (e.g., email, name from Google)
+
+    useEffect(() => {
+        // Persist auth state to localStorage
+        localStorage.setItem('isAuthenticated', isAuthenticated);
+        if (currentUser) {
+            localStorage.setItem('user', JSON.stringify(currentUser));
+        } else {
+            localStorage.removeItem('user');
+        }
+    }, [isAuthenticated, currentUser]);
+
+    const loginUser = (userData) => {
+        // In a real app, userData would come from your backend after successful login/Google verification
+        setIsAuthenticated(true);
+        setCurrentUser(userData); // e.g., { email: 'user@example.com', name: 'User Name' }
+        // Potentially load user-specific resumeData here if implementing resume saving
+    };
+
+    const logoutUser = () => {
+        setIsAuthenticated(false);
+        setCurrentUser(null);
+        setResumeData(initialResumeData); // Reset resume data on logout
+        // In a real app, also call backend to invalidate session/token
+    };
+    // --- End Authentication State ---
     
      const updateField = (section, field, value) => {
         console.log(`ResumeContext: updateField for section=${section}, field=${field}, value=${value}`); // Debugging
@@ -165,7 +204,11 @@ export const ResumeProvider = ({ children }) => {
         selectedTemplate,
         setSelectedTemplate,
         loadingAI,
-        setLoadingAI
+        setLoadingAI,
+        isAuthenticated,
+        currentUser,
+        loginUser,
+        logoutUser,
     };
 
     return (

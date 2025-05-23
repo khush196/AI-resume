@@ -1,19 +1,18 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom'; // Import Routes and Route
-import Navbar from './components/Navbar'; // Your Navbar
-import HomePage from './pages/HomePage';   // Your new HomePage
-import BuilderPage from './pages/BuilderPage'; // Your new BuilderPage
+import { Routes, Route } from 'react-router-dom'; 
+import Navbar from './components/Navbar'; 
+import HomePage from './pages/HomePage';  
+import BuilderPage from './pages/BuilderPage'; 
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import LoginPage from './pages/LoginPage.jsx';    
+import RegisterPage from './pages/RegisterPage.jsx';
 
-// Import your global styles if not already in main.jsx or index.js
-import './App.css'; // Contains general layout styles, maybe some global styles too
-// Template CSS files should ideally be imported where they are used or globally if simple
+import './App.css'; 
 import './components/Templates/Template1.css';
 import './components/Templates/Template2.css';
 import './components/Templates/Template3.css';
 
-// Placeholder components for About, Pricing, Contact (create these later)
 
 const PricingPage = () => <div style={{padding: '50px', textAlign: 'center'}}><h2>Pricing</h2><p>Comming Soon..!</p></div>;
 
@@ -29,6 +28,8 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/contact" element={<ContactPage />} />
+           <Route path="/login" element={<LoginPage />} />         
+          <Route path="/register" element={<RegisterPage />} />   
           {/* Add more routes as needed */}
         </Routes>
       </div>

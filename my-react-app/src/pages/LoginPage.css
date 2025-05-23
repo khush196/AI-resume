@@ -1,0 +1,10 @@
+/* my-react-app/src/pages/LoginPage.css */
+@import './RegisterPage.css'; /* Imports all styles from RegisterPage.css */
+
+/* Add any LoginPage-specific overrides or additional styles below if needed */
+/* For example, if the subtitle needs slightly different margin: */
+/*
+.auth-page-container .auth-subtitle {
+    margin-bottom: 30px; 
+}
+*/

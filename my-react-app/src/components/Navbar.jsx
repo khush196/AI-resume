@@ -43,6 +43,21 @@ function Navbar() {
                             Contact
                         </Link>
                     </li>
+                     <li className="nav-item">
+        <Link to="/login" className="nav-links" onClick={() => setIsMenuOpen(false)}>
+            Login
+        </Link>
+    </li>
+    <li className="nav-item">
+        <Link to="/register" className="nav-links" onClick={() => setIsMenuOpen(false)}>
+            Register
+        </Link>
+    </li>
+     <li className="nav-item nav-item-builder"> 
+        <Link to="/build" className="nav-links nav-links-builder" onClick={() => setIsMenuOpen(false)}>
+            Build Resume
+        </Link>
+    </li>
                    
                 </ul>
             </div>
