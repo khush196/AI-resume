@@ -1,6 +1,8 @@
  import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; 
+import { Link, useNavigate, useLocation } from 'react-router-dom'; 
 import { GoogleLogin } from '@react-oauth/google'; 
+import { jwtDecode } from "jwt-decode"; 
+import { useResume } from '../contexts/ResumeContext.jsx';
 import './RegisterPage.css'; 
 import { FcGoogle } from "react-icons/fc"; 
 
@@ -29,6 +31,31 @@ function RegisterPage() {
         // Simulate successful registration for now
         alert('Registration successful (simulated)! Redirecting to login...');
         navigate('/login'); // Redirect to login page after "successful" registration
+    };
+
+    const handleGoogleSuccess = (credentialResponse) => {
+            console.log('Google Login Success:', credentialResponse);
+            
+            try {
+                const decodedToken = jwtDecode(credentialResponse.credential);
+                console.log("Decoded Google Token:", decodedToken);
+                const userData = {
+                    email: decodedToken.email,
+                    name: decodedToken.name,
+                    picture: decodedToken.picture,
+                    id_token: credentialResponse.credential 
+                };
+                loginUser(userData); 
+                navigate(from, { replace: true }); 
+            } catch (error) {
+                console.error("Error decoding Google token:", error);
+                setError("Failed to process Google login.");
+            }
+        };
+
+        const handleGoogleFailure = (errorResponse) => {
+        console.error('Google Login Failure:', errorResponse);
+        setError('Google login failed. Please try again.');
     };
 
     const handleGoogleRegister = () => {
