@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode"; 
 import { useResume } from '../contexts/ResumeContext.jsx';
@@ -96,10 +96,17 @@ function LoginPage() {
                     <span>or</span>
                 </div>
 
-                <button onClick={handleGoogleLogin} className="auth-google-button">
-                    <FcGoogle size={22} style={{ marginRight: '10px' }} />
-                    login with google
-                </button>
+                  <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginBottom: '15px' }}>
+                    <GoogleLogin
+                        onSuccess={handleGoogleSuccess}
+                        onError={handleGoogleFailure}
+                        // theme="outline"
+                        // size="large"
+                        // shape="rectangular"
+                        // width="300px" // Example width
+                    />
+                </div>
+
 
                 <p className="auth-switch-text">
                     don't have an account? <Link to="/register" className="auth-link">sign up</Link>

@@ -1,8 +1,8 @@
-// my-react-app/src/pages/RegisterPage.jsx
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // useNavigate for redirection
-import './RegisterPage.css'; // We'll create this CSS file
-import { FcGoogle } from "react-icons/fc"; // Google icon
+ import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom'; 
+import { GoogleLogin } from '@react-oauth/google'; 
+import './RegisterPage.css'; 
+import { FcGoogle } from "react-icons/fc"; 
 
 function RegisterPage() {
     const [email, setEmail] = useState('');
@@ -89,10 +89,16 @@ function RegisterPage() {
                     <span>or</span>
                 </div>
 
-                <button onClick={handleGoogleRegister} className="auth-google-button">
-                    <FcGoogle size={22} style={{ marginRight: '10px' }} />
-                    register with google
-                </button>
+               <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginBottom: '15px' }}>
+                    <GoogleLogin
+                        onSuccess={handleGoogleSuccess}
+                        onError={handleGoogleFailure}
+                        // theme="outline"
+                        // size="large"
+                        // shape="rectangular"
+                        // width="300px" // Example width
+                    />
+                </div>
 
                 <p className="auth-switch-text">
                     already have an account? <Link to="/login" className="auth-link">login</Link>
