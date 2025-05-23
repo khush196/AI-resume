@@ -14,6 +14,7 @@ function LoginPage() {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/build";
+    navigate(from, { replace: true });
 
     const handleLogin = (e) => {
         e.preventDefault();

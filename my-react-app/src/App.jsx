@@ -7,6 +7,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import LoginPage from './pages/LoginPage.jsx';    
 import RegisterPage from './pages/RegisterPage.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 import './App.css'; 
 import './components/Templates/Template1.css';
@@ -19,12 +20,19 @@ const PricingPage = () => <div style={{padding: '50px', textAlign: 'center'}}><h
 
 function App() {
   return (
-    <> {/* Use Fragment because BrowserRouter will be the top-level in main.jsx */}
-      <Navbar /> {/* Navbar will be displayed on all pages */}
-      <div className="page-content-container"> {/* Optional: for consistent padding/margin below navbar */}
+    <> 
+      <Navbar /> 
+      <div className="page-content-container">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/build" element={<BuilderPage />} />
+          <Route
+          path="/build"
+          element={
+            <ProtectedRoute> 
+              <BuilderPage />
+            </ProtectedRoute>
+         }
+        />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/contact" element={<ContactPage />} />

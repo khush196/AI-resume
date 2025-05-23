@@ -11,7 +11,7 @@ function HomePage() {
                 <p className="hero-tagline">
                     Craft professional, ATS-friendly resumes in minutes with Us.
                 </p>
-                <Link to="/build" className="hero-cta-button">
+                <Link to="/login" className="hero-cta-button">
                     Get Started Now
                 </Link>
             </div>
