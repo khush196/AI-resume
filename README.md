@@ -42,7 +42,7 @@ A modern, AI-powered resume builder that helps users create professional, ATS-fr
 
 . Clone the repository:
 ```bash```
-git clone https://github.com/khush196/ai-resume-builder.git
+git clone https://github.com/khush196/AI-resume.git
 
 
 🌈 Usage
@@ -88,6 +88,6 @@ All contributors and testers who helped improve the project
 📞 Contact
 Khush196 - GitHub
 
-Project Link: https://github.com/khush196/ai-resume-builder
+Project Link: https://github.com/khush196/AI-resume
 
 
