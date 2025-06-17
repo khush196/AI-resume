@@ -41,11 +41,13 @@ A modern, AI-powered resume builder that helps users create professional, ATS-fr
 - JWT token-based sessions
 
 . Clone the repository:
-```bash```
+```bash
 git clone https://github.com/khush196/AI-resume.git
+```
 
 
-🌈 Usage
+## Usage
+
 Register/Login using Google authentication
 Fill in your resume information using the interactive form
 Choose a template that suits your style
@@ -53,7 +55,8 @@ Use AI suggestions to enhance your content
 Preview your resume in real-time
 Download the final version as a PDF
 
-🎨 Templates
+## Templates
+
 Currently offers three professional templates:
 
 Classic: Traditional and elegant design
@@ -61,33 +64,45 @@ Modern: Contemporary and creative layout
 Compact: Space-efficient and minimalist style
 
 
-🔒 Security
+## Security
+
 Secure authentication using Google OAuth
 Environment variables for sensitive data
 Protected routes for authenticated users
 CORS enabled for API security
-🔜 Future Enhancements
+
+
+## Future Enhancements
+
 Additional resume templates
 MongoDB integration for saving multiple resumes
 Advanced AI features for job-specific customization
 Resume analytics and ATS scoring
 Dark mode theme
 Mobile app version
-👥 Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
 
-📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## Contributing
 
-🙏 Acknowledgments
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## Acknowledgments
+
 Google Generative AI for powering content suggestions
 React community for excellent documentation and resources
 All contributors and testers who helped improve the project
 
 
-📞 Contact
-Khush196 - GitHub
+## Author
 
-Project Link: https://github.com/khush196/AI-resume
+- [@Khush196](https://github.com/khush196)
+
+## Live Demo
+
+Visit [AI-resume](https://khush196.github.io/AI-resume/)
+
 
 
